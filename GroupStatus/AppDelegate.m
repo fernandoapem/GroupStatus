@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-
+#import <Parse/Parse.h>
 @interface AppDelegate ()
 
 @end
@@ -16,6 +16,15 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+    ParseClientConfiguration *config = [ParseClientConfiguration   configurationWithBlock:^(id<ParseMutableClientConfiguration> configuration) {
+        
+        configuration.applicationId = @"groupstatusfbu";
+        configuration.server = @"https://groupstatusfbu.herokuapp.com/parse";
+    }];
+    
+    [Parse initializeWithConfiguration:config];
+    
     // Override point for customization after application launch.
     return YES;
 }

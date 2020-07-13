@@ -1,0 +1,6 @@
+framework module Pods_GroupStatus_GroupStatusUITests {
+  umbrella header "Pods-GroupStatus-GroupStatusUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
