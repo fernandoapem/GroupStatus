@@ -7,6 +7,10 @@
 //
 
 #import "ViewController.h"
+#import "Member.h"
+#import "Event.h"
+#import "Timeline.h"
+#import "Group.h"
 
 @interface ViewController ()
 
@@ -17,6 +21,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
 }
 
 

@@ -3,13 +3,18 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		38DFEF5EB2A6C46CD7C5F1FC /* Pods_GroupStatus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1040830A4021536911C12D5 /* Pods_GroupStatus.framework */; };
 		542EA143E38AB2AACB31AE41 /* Pods_GroupStatus_GroupStatusUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4C9023E690042A46281D497 /* Pods_GroupStatus_GroupStatusUITests.framework */; };
 		D262B646BD7D846FF60B2C09 /* Pods_GroupStatusTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E144C23366CC1DCFCFC0DF2 /* Pods_GroupStatusTests.framework */; };
+		ED06F92724BE0A2D00DF2FCD /* Group.m in Sources */ = {isa = PBXBuildFile; fileRef = ED06F92624BE0A2D00DF2FCD /* Group.m */; };
+		ED06F92A24BE418400DF2FCD /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = ED06F92924BE418400DF2FCD /* Event.m */; };
+		ED06F92D24BE47E700DF2FCD /* Timeline.m in Sources */ = {isa = PBXBuildFile; fileRef = ED06F92C24BE47E700DF2FCD /* Timeline.m */; };
+		ED06F93024BE496400DF2FCD /* Member.m in Sources */ = {isa = PBXBuildFile; fileRef = ED06F92F24BE496400DF2FCD /* Member.m */; };
+		ED06F93324BE4A8E00DF2FCD /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED06F93224BE4A8E00DF2FCD /* LoginViewController.m */; };
 		ED14013924BCB57E00138A18 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = ED14013824BCB57E00138A18 /* AppDelegate.m */; };
 		ED14013C24BCB57E00138A18 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = ED14013B24BCB57E00138A18 /* SceneDelegate.m */; };
 		ED14013F24BCB57E00138A18 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED14013E24BCB57E00138A18 /* ViewController.m */; };
@@ -47,6 +52,16 @@
 		B515738611434EF4C0867337 /* Pods-GroupStatusTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GroupStatusTests.release.xcconfig"; path = "Target Support Files/Pods-GroupStatusTests/Pods-GroupStatusTests.release.xcconfig"; sourceTree = "<group>"; };
 		BD5F04267485B773D7A8AF6A /* Pods-GroupStatus.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GroupStatus.debug.xcconfig"; path = "Target Support Files/Pods-GroupStatus/Pods-GroupStatus.debug.xcconfig"; sourceTree = "<group>"; };
 		D4C9023E690042A46281D497 /* Pods_GroupStatus_GroupStatusUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GroupStatus_GroupStatusUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		ED06F92524BE0A2D00DF2FCD /* Group.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Group.h; sourceTree = "<group>"; };
+		ED06F92624BE0A2D00DF2FCD /* Group.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Group.m; sourceTree = "<group>"; };
+		ED06F92824BE418400DF2FCD /* Event.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
+		ED06F92924BE418400DF2FCD /* Event.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
+		ED06F92B24BE47E700DF2FCD /* Timeline.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Timeline.h; sourceTree = "<group>"; };
+		ED06F92C24BE47E700DF2FCD /* Timeline.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Timeline.m; sourceTree = "<group>"; };
+		ED06F92E24BE496400DF2FCD /* Member.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Member.h; sourceTree = "<group>"; };
+		ED06F92F24BE496400DF2FCD /* Member.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Member.m; sourceTree = "<group>"; };
+		ED06F93124BE4A8E00DF2FCD /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = LoginViewController.h; path = GroupStatus/LoginViewController.h; sourceTree = SOURCE_ROOT; };
+		ED06F93224BE4A8E00DF2FCD /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = LoginViewController.m; path = GroupStatus/LoginViewController.m; sourceTree = SOURCE_ROOT; };
 		ED14013424BCB57E00138A18 /* GroupStatus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GroupStatus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED14013724BCB57E00138A18 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		ED14013824BCB57E00138A18 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -106,7 +121,6 @@
 				3A2603B7F49DB2ACCE81C036 /* Pods-GroupStatusTests.debug.xcconfig */,
 				B515738611434EF4C0867337 /* Pods-GroupStatusTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -123,6 +137,8 @@
 		ED06F92224BCBF0600DF2FCD /* View Controller */ = {
 			isa = PBXGroup;
 			children = (
+				ED06F93124BE4A8E00DF2FCD /* LoginViewController.h */,
+				ED06F93224BE4A8E00DF2FCD /* LoginViewController.m */,
 			);
 			path = "View Controller";
 			sourceTree = "<group>";
@@ -130,8 +146,23 @@
 		ED06F92324BCBF1D00DF2FCD /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				ED06F92524BE0A2D00DF2FCD /* Group.h */,
+				ED06F92624BE0A2D00DF2FCD /* Group.m */,
+				ED06F92824BE418400DF2FCD /* Event.h */,
+				ED06F92924BE418400DF2FCD /* Event.m */,
+				ED06F92B24BE47E700DF2FCD /* Timeline.h */,
+				ED06F92C24BE47E700DF2FCD /* Timeline.m */,
+				ED06F92E24BE496400DF2FCD /* Member.h */,
+				ED06F92F24BE496400DF2FCD /* Member.m */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		ED06F92424BD09E200DF2FCD /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		ED14012B24BCB57E00138A18 = {
@@ -159,6 +190,7 @@
 		ED14013624BCB57E00138A18 /* GroupStatus */ = {
 			isa = PBXGroup;
 			children = (
+				ED06F92424BD09E200DF2FCD /* Views */,
 				ED06F92324BCBF1D00DF2FCD /* Models */,
 				ED06F92224BCBF0600DF2FCD /* View Controller */,
 				ED14013724BCB57E00138A18 /* AppDelegate.h */,
@@ -432,8 +464,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED06F92A24BE418400DF2FCD /* Event.m in Sources */,
 				ED14013F24BCB57E00138A18 /* ViewController.m in Sources */,
 				ED14013924BCB57E00138A18 /* AppDelegate.m in Sources */,
+				ED06F93024BE496400DF2FCD /* Member.m in Sources */,
+				ED06F92D24BE47E700DF2FCD /* Timeline.m in Sources */,
+				ED06F93324BE4A8E00DF2FCD /* LoginViewController.m in Sources */,
+				ED06F92724BE0A2D00DF2FCD /* Group.m in Sources */,
 				ED14014A24BCB57F00138A18 /* main.m in Sources */,
 				ED14013C24BCB57E00138A18 /* SceneDelegate.m in Sources */,
 			);
