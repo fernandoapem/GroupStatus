@@ -35,7 +35,7 @@
         if(succeeded)
         {
             NSLog(@"User signed up successfully");
-            //[self performSegueWithIdentifier:@"loginSegue" sender:nil];
+            [self performSegueWithIdentifier:@"loginSegue" sender:nil];
             [Member createMember:member];
             
         }
@@ -54,7 +54,7 @@
             NSLog(@"%@",error.localizedDescription);
         } else {
             NSLog(@"User logged in successfully");
-            //[self performSegueWithIdentifier:@"loginSegue" sender:nil];
+            [self performSegueWithIdentifier:@"loginSegue" sender:nil];
         }
     }];
     
