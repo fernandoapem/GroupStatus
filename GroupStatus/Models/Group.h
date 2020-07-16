@@ -7,7 +7,7 @@
 //
 
 #import <Parse/Parse.h>
-
+#import "Member.h"
 NS_ASSUME_NONNULL_BEGIN
 
 @interface Group : PFObject<PFSubclassing>
@@ -16,7 +16,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,strong) NSString *groupName;
 @property (nonatomic,strong) NSString *groupDescription;
 @property (nonatomic,strong,nullable) NSMutableArray *members;
-+ (void) createGroup: ( NSString * _Nullable )name withDescription: (NSString * _Nullable)description withCompletion: (PFBooleanResultBlock  _Nullable)completion;
+@property (nonatomic, strong) PFFileObject *image;
++ (void) createGroup: ( NSString * _Nullable )name withDescription: (NSString * _Nullable)description withMember:(Member * _Nullable)member withImage: ( UIImage * _Nullable )image toGroup:(Group *)newGroup withCompletion: (PFBooleanResultBlock  _Nullable)completion;
 @end
 
 NS_ASSUME_NONNULL_END

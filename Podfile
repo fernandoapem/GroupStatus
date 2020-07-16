@@ -7,6 +7,7 @@ target 'GroupStatus' do
 
   # Pods for GroupStatus
   pod 'Parse'
+  pod 'Parse/UI'
 
   target 'GroupStatusTests' do
     inherit! :search_paths

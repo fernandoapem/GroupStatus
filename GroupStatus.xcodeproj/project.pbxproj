@@ -23,10 +23,12 @@
 		ED14014A24BCB57F00138A18 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = ED14014924BCB57F00138A18 /* main.m */; };
 		ED14015424BCB57F00138A18 /* GroupStatusTests.m in Sources */ = {isa = PBXBuildFile; fileRef = ED14015324BCB57F00138A18 /* GroupStatusTests.m */; };
 		ED14015F24BCB57F00138A18 /* GroupStatusUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = ED14015E24BCB57F00138A18 /* GroupStatusUITests.m */; };
+		ED2D69EC24C100CC006347E2 /* CreateGroupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED2D69EB24C100CC006347E2 /* CreateGroupViewController.m */; };
 		ED460D3024BF55A7008FE71A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED460D2E24BF55A7008FE71A /* Main.storyboard */; };
 		ED460D3324BF56A0008FE71A /* GroupsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED460D3224BF56A0008FE71A /* GroupsViewController.m */; };
 		ED460D3624BF5714008FE71A /* TimelineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED460D3524BF5714008FE71A /* TimelineViewController.m */; };
 		ED460D3924BF58F8008FE71A /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED460D3824BF58F8008FE71A /* ProfileViewController.m */; };
+		ED460D3C24C0DAA3008FE71A /* GroupCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ED460D3B24C0DAA3008FE71A /* GroupCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +84,8 @@
 		ED14015A24BCB57F00138A18 /* GroupStatusUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GroupStatusUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED14015E24BCB57F00138A18 /* GroupStatusUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GroupStatusUITests.m; sourceTree = "<group>"; };
 		ED14016024BCB57F00138A18 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ED2D69EA24C100CC006347E2 /* CreateGroupViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CreateGroupViewController.h; sourceTree = "<group>"; };
+		ED2D69EB24C100CC006347E2 /* CreateGroupViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CreateGroupViewController.m; sourceTree = "<group>"; };
 		ED460D2F24BF55A7008FE71A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		ED460D3124BF56A0008FE71A /* GroupsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GroupsViewController.h; path = GroupStatus/GroupsViewController.h; sourceTree = SOURCE_ROOT; };
 		ED460D3224BF56A0008FE71A /* GroupsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = GroupsViewController.m; path = GroupStatus/GroupsViewController.m; sourceTree = SOURCE_ROOT; };
@@ -89,6 +93,8 @@
 		ED460D3524BF5714008FE71A /* TimelineViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = TimelineViewController.m; path = GroupStatus/TimelineViewController.m; sourceTree = SOURCE_ROOT; };
 		ED460D3724BF58F8008FE71A /* ProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ProfileViewController.h; path = GroupStatus/ProfileViewController.h; sourceTree = SOURCE_ROOT; };
 		ED460D3824BF58F8008FE71A /* ProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = ProfileViewController.m; path = GroupStatus/ProfileViewController.m; sourceTree = SOURCE_ROOT; };
+		ED460D3A24C0DAA3008FE71A /* GroupCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GroupCell.h; path = GroupStatus/GroupCell.h; sourceTree = SOURCE_ROOT; };
+		ED460D3B24C0DAA3008FE71A /* GroupCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = GroupCell.m; path = GroupStatus/GroupCell.m; sourceTree = SOURCE_ROOT; };
 		F28444D7B0C794DC539CA097 /* Pods-GroupStatus-GroupStatusUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GroupStatus-GroupStatusUITests.release.xcconfig"; path = "Target Support Files/Pods-GroupStatus-GroupStatusUITests/Pods-GroupStatus-GroupStatusUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -154,6 +160,8 @@
 				ED460D3224BF56A0008FE71A /* GroupsViewController.m */,
 				ED06F93124BE4A8E00DF2FCD /* LoginViewController.h */,
 				ED06F93224BE4A8E00DF2FCD /* LoginViewController.m */,
+				ED2D69EA24C100CC006347E2 /* CreateGroupViewController.h */,
+				ED2D69EB24C100CC006347E2 /* CreateGroupViewController.m */,
 			);
 			path = "View Controller";
 			sourceTree = "<group>";
@@ -176,6 +184,8 @@
 		ED06F92424BD09E200DF2FCD /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				ED460D3A24C0DAA3008FE71A /* GroupCell.h */,
+				ED460D3B24C0DAA3008FE71A /* GroupCell.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -487,8 +497,10 @@
 				ED06F93324BE4A8E00DF2FCD /* LoginViewController.m in Sources */,
 				ED460D3324BF56A0008FE71A /* GroupsViewController.m in Sources */,
 				ED06F92724BE0A2D00DF2FCD /* Group.m in Sources */,
+				ED2D69EC24C100CC006347E2 /* CreateGroupViewController.m in Sources */,
 				ED14014A24BCB57F00138A18 /* main.m in Sources */,
 				ED14013C24BCB57E00138A18 /* SceneDelegate.m in Sources */,
+				ED460D3C24C0DAA3008FE71A /* GroupCell.m in Sources */,
 				ED460D3924BF58F8008FE71A /* ProfileViewController.m in Sources */,
 				ED460D3624BF5714008FE71A /* TimelineViewController.m in Sources */,
 			);

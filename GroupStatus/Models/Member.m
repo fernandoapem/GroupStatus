@@ -27,4 +27,8 @@
       }
     }];
 }
++(void)updateProfilePic
+{
+    
+}
 @end
