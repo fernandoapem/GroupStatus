@@ -21,8 +21,10 @@
     return @"Group";
 }
 
-+ (void) createGroup: ( NSString * _Nullable )name withDescription: (NSString * _Nullable)description withMember:(Member * _Nullable)member withImage: ( UIImage * _Nullable )image toGroup:(Group *)newGroup withCompletion: (PFBooleanResultBlock  _Nullable)completion {
++ (void) createGroup: ( NSString *)name withDescription: (NSString * _Nullable)description withMember:(Member * _Nullable)member withImage: ( UIImage * _Nullable )image toGroup:(Group *)newGroup withCompletion: (PFBooleanResultBlock  _Nullable)completion {
     
+    PFQuery *groupQuery = [Group query];
+    [groupQuery whereKey:@"groupName" equalTo:name];
     newGroup.groupName =name;
     newGroup.groupDescription =description;
     newGroup.memberCount = @(1);
@@ -32,11 +34,14 @@
     
     [newGroup saveInBackgroundWithBlock: completion];
     
-   
+    
 }
 
+    
+
+
 + (PFFileObject *)getPFFileFromImage: (UIImage * _Nullable)image {
- 
+    
     // check if image is not nil
     if (!image) {
         return nil;

@@ -26,8 +26,6 @@
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     
-    Member *current = [Member currentUser];
-    NSLog(@"%@",current.groups);
     [self fetchGroups];
 }
 -(void) fetchGroups
@@ -62,6 +60,7 @@
     
     UIAlertAction* joinAction = [UIAlertAction actionWithTitle:@"Join Group" style:UIAlertActionStyleDefault
        handler:^(UIAlertAction * action) {
+        [self performSegueWithIdentifier:@"joinSegue" sender:nil];
         
     }];
      

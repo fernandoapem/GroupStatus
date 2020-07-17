@@ -168,6 +168,7 @@
                     <connections>
                         <outlet property="tableView" destination="8q6-YG-0Ii" id="AcF-s6-xmI"/>
                         <segue destination="kL1-pL-TKm" kind="presentation" identifier="createSegue" id="6iR-ge-ta5"/>
+                        <segue destination="oE9-C6-6RO" kind="presentation" identifier="joinSegue" id="at6-hc-mN5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s1g-Jr-M3Y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -241,7 +242,7 @@
         <scene sceneID="wVY-Ii-pjN">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="V2M-BT-yYh" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Groups" id="7yA-UB-3Sz"/>
+                    <tabBarItem key="tabBarItem" title="Groups" image="person.3.fill" catalog="system" id="7yA-UB-3Sz"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Oda-sn-b3E">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -276,7 +277,7 @@
         <scene sceneID="omd-ET-g6l">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="46d-zO-oWE" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Timeline" id="6jW-7D-gxx"/>
+                    <tabBarItem key="tabBarItem" title="Timeline" image="calendar" catalog="system" id="6jW-7D-gxx"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="u0H-xr-k6h">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -323,7 +324,7 @@
         <scene sceneID="XQZ-56-rhI">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="n9C-fW-IAx" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Profile" id="rdy-fx-dym"/>
+                    <tabBarItem key="tabBarItem" title="Profile" image="person.fill" catalog="system" id="rdy-fx-dym"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="5vt-N8-P56">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -337,6 +338,51 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="51r-qx-5iV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2274" y="703"/>
+        </scene>
+        <!--Join Group View Controller-->
+        <scene sceneID="Cx4-o0-cVn">
+            <objects>
+                <viewController id="dmP-L9-QLD" customClass="JoinGroupViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="oTB-ug-104">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IBh-s6-q9z">
+                                <rect key="frame" x="20" y="151" width="55" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Group Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ioz-Qa-KjT">
+                                <rect key="frame" x="94" y="144" width="300" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="Ccu-7F-hjM"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="u3g-yE-3Zq">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="whi-zv-7vb">
+                            <connections>
+                                <action selector="tapOnCancel:" destination="dmP-L9-QLD" id="GHJ-U1-hAB"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Join" id="OkM-yq-Wry">
+                            <connections>
+                                <action selector="tapOnJoin:" destination="dmP-L9-QLD" id="Atc-cx-GnZ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="nameTextField" destination="Ioz-Qa-KjT" id="AWg-lh-dIc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vtM-gJ-hmN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5011.594202898551" y="-1366.0714285714284"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="0EA-t7-xOe">
@@ -356,8 +402,29 @@
             </objects>
             <point key="canvasLocation" x="4095.652173913044" y="-706.47321428571422"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="R7H-3O-4Cu">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="oE9-C6-6RO" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="bFo-Ac-UBk">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="dmP-L9-QLD" kind="relationship" relationship="rootViewController" id="TcR-wf-NXB"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Va7-F8-dck" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4103" y="-1366"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="calendar" catalog="system" width="128" height="106"/>
+        <image name="person.3.fill" catalog="system" width="128" height="61"/>
+        <image name="person.fill" catalog="system" width="128" height="120"/>
         <image name="plus" catalog="system" width="128" height="113"/>
     </resources>
 </document>

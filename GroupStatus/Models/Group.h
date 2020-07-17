@@ -17,7 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,strong) NSString *groupDescription;
 @property (nonatomic,strong,nullable) NSMutableArray *members;
 @property (nonatomic, strong) PFFileObject *image;
-+ (void) createGroup: ( NSString * _Nullable )name withDescription: (NSString * _Nullable)description withMember:(Member * _Nullable)member withImage: ( UIImage * _Nullable )image toGroup:(Group *)newGroup withCompletion: (PFBooleanResultBlock  _Nullable)completion;
++ (void) createGroup: ( NSString * )name withDescription: (NSString * _Nullable)description withMember:(Member * _Nullable)member withImage: ( UIImage * _Nullable )image toGroup:(Group *)newGroup withCompletion: (PFBooleanResultBlock  _Nullable)completion;
 @end
 
 NS_ASSUME_NONNULL_END

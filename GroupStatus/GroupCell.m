@@ -22,10 +22,8 @@
 }
 - (void)setGroup:(Group *)group
 {
-    NSLog(@"HHHHHHHHH");
     _group = group;
     self.descriptionLabel.text = group.groupDescription;
-    NSLog(@"%@",group.groupName);
     self.groupNameLabel.text = group.groupName;
     self.memberCountLabel.text = [NSString stringWithFormat:@"%@", group.memberCount];
     [self.groupImage loadInBackground];

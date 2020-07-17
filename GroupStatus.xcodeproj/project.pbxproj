@@ -24,6 +24,7 @@
 		ED14015424BCB57F00138A18 /* GroupStatusTests.m in Sources */ = {isa = PBXBuildFile; fileRef = ED14015324BCB57F00138A18 /* GroupStatusTests.m */; };
 		ED14015F24BCB57F00138A18 /* GroupStatusUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = ED14015E24BCB57F00138A18 /* GroupStatusUITests.m */; };
 		ED2D69EC24C100CC006347E2 /* CreateGroupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED2D69EB24C100CC006347E2 /* CreateGroupViewController.m */; };
+		ED2D69EF24C20EC3006347E2 /* JoinGroupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED2D69EE24C20EC3006347E2 /* JoinGroupViewController.m */; };
 		ED460D3024BF55A7008FE71A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED460D2E24BF55A7008FE71A /* Main.storyboard */; };
 		ED460D3324BF56A0008FE71A /* GroupsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED460D3224BF56A0008FE71A /* GroupsViewController.m */; };
 		ED460D3624BF5714008FE71A /* TimelineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED460D3524BF5714008FE71A /* TimelineViewController.m */; };
@@ -86,6 +87,8 @@
 		ED14016024BCB57F00138A18 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ED2D69EA24C100CC006347E2 /* CreateGroupViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CreateGroupViewController.h; sourceTree = "<group>"; };
 		ED2D69EB24C100CC006347E2 /* CreateGroupViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CreateGroupViewController.m; sourceTree = "<group>"; };
+		ED2D69ED24C20EC3006347E2 /* JoinGroupViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = JoinGroupViewController.h; path = GroupStatus/JoinGroupViewController.h; sourceTree = SOURCE_ROOT; };
+		ED2D69EE24C20EC3006347E2 /* JoinGroupViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = JoinGroupViewController.m; path = GroupStatus/JoinGroupViewController.m; sourceTree = SOURCE_ROOT; };
 		ED460D2F24BF55A7008FE71A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		ED460D3124BF56A0008FE71A /* GroupsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GroupsViewController.h; path = GroupStatus/GroupsViewController.h; sourceTree = SOURCE_ROOT; };
 		ED460D3224BF56A0008FE71A /* GroupsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = GroupsViewController.m; path = GroupStatus/GroupsViewController.m; sourceTree = SOURCE_ROOT; };
@@ -152,6 +155,8 @@
 		ED06F92224BCBF0600DF2FCD /* View Controller */ = {
 			isa = PBXGroup;
 			children = (
+				ED2D69ED24C20EC3006347E2 /* JoinGroupViewController.h */,
+				ED2D69EE24C20EC3006347E2 /* JoinGroupViewController.m */,
 				ED460D3724BF58F8008FE71A /* ProfileViewController.h */,
 				ED460D3824BF58F8008FE71A /* ProfileViewController.m */,
 				ED460D3424BF5714008FE71A /* TimelineViewController.h */,
@@ -498,6 +503,7 @@
 				ED460D3324BF56A0008FE71A /* GroupsViewController.m in Sources */,
 				ED06F92724BE0A2D00DF2FCD /* Group.m in Sources */,
 				ED2D69EC24C100CC006347E2 /* CreateGroupViewController.m in Sources */,
+				ED2D69EF24C20EC3006347E2 /* JoinGroupViewController.m in Sources */,
 				ED14014A24BCB57F00138A18 /* main.m in Sources */,
 				ED14013C24BCB57E00138A18 /* SceneDelegate.m in Sources */,
 				ED460D3C24C0DAA3008FE71A /* GroupCell.m in Sources */,
