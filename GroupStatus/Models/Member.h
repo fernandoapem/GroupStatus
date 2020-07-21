@@ -11,11 +11,14 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface Member : PFUser<PFSubclassing>
-@property (nonatomic,strong) NSNumber *groupNumber;
-@property (nonatomic,strong) NSMutableArray *groups;
-@property (nonatomic,strong,nullable) PFFileObject *profilePicture;
-@property (nonatomic,strong) NSString *status;
-+(void) createMember:(Member * _Nullable)member;
+
+@property (nonatomic,strong,readwrite) NSNumber *groupNumber;
+@property (nonatomic,strong,readwrite) NSMutableArray *groups;
+@property (nonatomic,strong,nullable,readwrite) PFFileObject *profilePicture;
+@property (nonatomic,copy,readwrite) NSString *status;
+
+-(instancetype) initWithStatus:(NSString *)status withUsername:(NSString *)username withPassword:(NSString *)password;
++(void)saveMemberOnServer:(Member*) member withCompletion:(PFBooleanResultBlock)completion;
 
 @end
 

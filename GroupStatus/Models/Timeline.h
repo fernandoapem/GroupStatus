@@ -11,10 +11,11 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface Timeline : PFObject<PFSubclassing>
-@property (nonatomic,strong) NSString *timelineID;
-@property (nonatomic,strong) NSString *groupID;
+@property (nonatomic,copy,readonly) NSString *groupID;
 @property (nonatomic,strong) NSNumber *eventCount;
-+(void)createTimelinewithGroupID:(NSString * _Nullable)groupID withCompletion: (PFBooleanResultBlock  _Nullable)completion;
+-(instancetype) initWithGroupID:(NSString *) groupId;
++(void)saveTimelineOnServer:(Timeline*) timeline withCompletion:(PFBooleanResultBlock)completion;
+
 @end
 
 NS_ASSUME_NONNULL_END

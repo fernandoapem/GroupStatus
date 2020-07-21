@@ -11,13 +11,16 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface Group : PFObject<PFSubclassing>
-@property (nonatomic,strong) NSString *groupId;
-@property (nonatomic,strong) NSNumber *memberCount;
-@property (nonatomic,strong) NSString *groupName;
-@property (nonatomic,strong) NSString *groupDescription;
-@property (nonatomic,strong,nullable) NSMutableArray *members;
-@property (nonatomic, strong) PFFileObject *image;
-+ (void) createGroup: ( NSString * )name withDescription: (NSString * _Nullable)description withMember:(Member * _Nullable)member withImage: ( UIImage * _Nullable )image toGroup:(Group *)newGroup withCompletion: (PFBooleanResultBlock  _Nullable)completion;
+@property (nonatomic,strong,readwrite) NSNumber *memberCount;
+@property (nonatomic,copy,readonly) NSString *groupName;
+@property (nonatomic,copy,readonly) NSString *groupDescription;
+@property (nonatomic,strong,nullable,readwrite) NSMutableArray *members;
+@property (nonatomic, strong,readwrite) PFFileObject *image;
++(PFFileObject *)getPFFileFromImageGiven: (UIImage * _Nullable)image;
+-(instancetype) initWithGroupName:( NSString *) name withDescription: (NSString * )description withMember:(Member *)member withImage: ( UIImage * _Nullable )image;
+
++ (void) saveGroupOnServer:(Group *)group withCompletion: (PFBooleanResultBlock  _Nullable)completion;
+
 @end
 
 NS_ASSUME_NONNULL_END

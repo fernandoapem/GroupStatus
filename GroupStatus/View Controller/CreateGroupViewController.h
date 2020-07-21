@@ -7,10 +7,13 @@
 //
 
 #import "ViewController.h"
+#import "Member.h"
+#import "Group.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface CreateGroupViewController : ViewController
+-(void) addMember:(Member *)currentMember toGroup:(Group*)group;
 
 @end
 

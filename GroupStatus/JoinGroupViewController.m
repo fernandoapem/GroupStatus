@@ -32,8 +32,6 @@
     PFQuery *groupQuery = [Group query];
     Member *currentMember = [Member currentUser];
     
-    
-    
     [groupQuery whereKey:@"groupName" equalTo: self.nameTextField.text];
     [groupQuery findObjectsInBackgroundWithBlock:^(NSArray <Group *>* _Nullable groups, NSError * _Nullable error) {
         if(groups)
@@ -67,7 +65,6 @@
     }];
     
 }
-
 /*
 #pragma mark - Navigation
 

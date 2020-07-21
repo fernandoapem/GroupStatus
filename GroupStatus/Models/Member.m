@@ -13,20 +13,25 @@
 @dynamic groups;
 @dynamic profilePicture;
 @dynamic status;
-+(void)createMember:(Member * _Nullable)member
+
+-(instancetype)initWithStatus:(NSString *)status withUsername:(NSString *)username withPassword:(NSString *)password
 {
-    member.groupNumber = @(0);
-    member.status = @"Starter";
-    member.groups = [NSMutableArray new];
-    member.profilePicture = nil;
-    [member saveInBackgroundWithBlock: ^(BOOL succeeded, NSError * _Nullable error) {
-      if (succeeded) {
-          NSLog(@"Member Object created");
-      } else {
-          NSLog(@"%@",error.localizedDescription);
-      }
-    }];
+    if(self = [super init])
+    {
+        self.username = username;
+        self.password = password;
+        self.groupNumber = @(0);
+        self.status = status;
+        self.groups = [NSMutableArray new];
+        self.profilePicture = nil;
+    }
+    return self;
 }
++(void) saveMemberOnServer:(Member *)member withCompletion:(PFBooleanResultBlock)completion
+{
+    [member saveInBackgroundWithBlock:completion];
+}
+
 +(void)updateProfilePic
 {
     

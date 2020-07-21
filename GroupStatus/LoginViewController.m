@@ -27,16 +27,19 @@
     
 }
 - (IBAction)tapOnSignUp:(id)sender {
-    Member *member = [Member user];
-    member.username = self.usernameTextField.text;
-    member.password = self.passwordTextField.text;
+    Member *member = [[Member alloc] initWithStatus:@"Starter" withUsername:self.usernameTextField.text withPassword:self.passwordTextField.text];
+
     
     [member signUpInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
         if(succeeded)
         {
             NSLog(@"User signed up successfully");
             [self performSegueWithIdentifier:@"loginSegue" sender:nil];
-            [Member createMember:member];
+            [Member saveMemberOnServer:member withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
+                if(succeeded){
+                    NSLog(@"Member created");
+                }
+            }];
             
         }
         else

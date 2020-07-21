@@ -23,9 +23,10 @@
 - (void)setGroup:(Group *)group
 {
     _group = group;
-    self.descriptionLabel.text = group.groupDescription;
-    self.groupNameLabel.text = group.groupName;
-    self.memberCountLabel.text = [NSString stringWithFormat:@"%@", group.memberCount];
+    self.descriptionLabel.text = [group groupDescription];
+    NSLog(@" NAME: %@",[group groupName]);
+    self.groupNameLabel.text = [group groupName];
+    self.memberCountLabel.text = [NSString stringWithFormat:@"%@", [group memberCount]];
     [self.groupImage loadInBackground];
 }
 

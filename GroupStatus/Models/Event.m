@@ -7,9 +7,14 @@
 //
 
 #import "Event.h"
+@interface Event()
+@property (readwrite) NSString *eventName;
+@property (readwrite) NSString *eventDescription;
+@property (readwrite) NSString *timelineId;
+
+@end
 
 @implementation Event
-@dynamic eventID;
 @dynamic timelineId;
 @dynamic time;
 @dynamic eventName;
@@ -19,14 +24,20 @@
 + (nonnull NSString *)parseClassName {
     return @"Event";
 }
-+(void) createEvent:(NSString * _Nullable)name withDescription:(NSString * _Nullable)description Attending:(NSNumber * _Nullable)member withCompletion: (PFBooleanResultBlock  _Nullable)completion {
-    Event *newEvent = [Event new];
-    
-       newEvent.eventName =name;
-       newEvent.eventDescription =description;
-       newEvent.membersAttending = member;
-       
-    
-    [newEvent saveInBackgroundWithBlock: completion];
+-(instancetype)initWithEventName:(NSString *)name withDescription:(NSString *)description withTime:(NSDate *)time
+{
+    if(self = [super init])
+    {
+    self.eventName =name;
+    self.eventDescription =description;
+    self.time = time;
+   
+    }
+     return self;
+}
+
++ (void)saveEventOnServer:(Event *)event withCompletion:(PFBooleanResultBlock)completion
+{
+    [event saveInBackgroundWithBlock:completion];
 }
 @end

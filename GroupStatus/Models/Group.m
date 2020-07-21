@@ -8,39 +8,42 @@
 
 #import "Group.h"
 #import "Member.h"
+#import <Parse/Parse.h>
+@interface Group()
+@property (readwrite) NSString *groupName;
+@property (readwrite) NSString *groupDescription;
+@end
 
 @implementation Group
-@dynamic groupId;
-@dynamic groupName;
-@dynamic groupDescription;
-@dynamic members;
-@dynamic memberCount;
-@dynamic image;
+@dynamic   groupName;
+@dynamic   groupDescription;
+@dynamic   memberCount ;
+@dynamic  members;
+@dynamic   image;
 
 + (nonnull NSString *)parseClassName {
     return @"Group";
 }
 
-+ (void) createGroup: ( NSString *)name withDescription: (NSString * _Nullable)description withMember:(Member * _Nullable)member withImage: ( UIImage * _Nullable )image toGroup:(Group *)newGroup withCompletion: (PFBooleanResultBlock  _Nullable)completion {
-    
-    PFQuery *groupQuery = [Group query];
-    [groupQuery whereKey:@"groupName" equalTo:name];
-    newGroup.groupName =name;
-    newGroup.groupDescription =description;
-    newGroup.memberCount = @(1);
-    newGroup.members = [NSMutableArray new];
-    newGroup.image = [self getPFFileFromImage:image];
-    
-    
-    [newGroup saveInBackgroundWithBlock: completion];
-    
-    
+
++ (void) saveGroupOnServer: (Group *)group withCompletion: (PFBooleanResultBlock  _Nullable)completion {
+ 
+    [group saveInBackgroundWithBlock: completion];
 }
 
-    
+-(instancetype)initWithGroupName:(NSString *)name withDescription:(NSString *)description withMember:(Member *)member withImage:(UIImage *)image {
+    if(self = [super init])
+    {
+        self.groupName = name;
+        self.groupDescription = description;
+        self.memberCount = @(1);
+        self.image = [self.class getPFFileFromImageGiven:image];
+        self.members = [NSMutableArray new];
 
-
-+ (PFFileObject *)getPFFileFromImage: (UIImage * _Nullable)image {
+    }
+    return self;
+}
++(PFFileObject *)getPFFileFromImageGiven: (UIImage * _Nullable)image {
     
     // check if image is not nil
     if (!image) {
@@ -52,7 +55,6 @@
     if (!imageData) {
         return nil;
     }
-    
     return [PFFileObject fileObjectWithName:@"image.png" data:imageData];
 }
 @end

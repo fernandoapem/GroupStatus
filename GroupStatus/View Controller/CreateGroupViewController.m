@@ -26,26 +26,33 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 - (IBAction)onCreateTap:(id)sender {
+
     Member *currentMember = [Member currentUser];
-    Group *group = [Group new];
-    [Group createGroup:self.nameTextField.text withDescription:self.descriptionView.text withMember:currentMember withImage:nil toGroup: group withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
+    Group *group = [[Group alloc] initWithGroupName:self.nameTextField.text withDescription:self.descriptionView.text withMember:currentMember withImage:nil];
+    
+    [Group saveGroupOnServer:group withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
         if(succeeded)
         {
-            [currentMember addObject:[group objectId] forKey:@"groups"];
             
-            int value = [currentMember.groupNumber intValue];
-            currentMember.groupNumber = [NSNumber numberWithInt:value + 1];
-            [currentMember saveInBackground];
-            NSLog(@"Group Created!!!!");
+            [self addMember:currentMember toGroup:group];
         }
         else
         {
-            NSLog(@"%@",error.localizedDescription);
+            
         }
     }];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
-
+-(void) addMember:(Member *)currentMember toGroup:(Group*)group
+{
+    NSLog(@"%@",[group objectId]);
+    [currentMember addObject:[group objectId] forKey:@"groups"];
+    
+    int value = [currentMember.groupNumber intValue];
+    currentMember.groupNumber = [NSNumber numberWithInt:value + 1];
+    [currentMember saveInBackground];
+    NSLog(@"Group Created!!!!");
+}
 /*
 #pragma mark - Navigation
 

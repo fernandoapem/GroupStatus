@@ -47,6 +47,7 @@
     groupQuery.limit = 10;
     
 }
+
 - (IBAction)tapOnAdd:(id)sender {
     UIAlertController* alert = [UIAlertController alertControllerWithTitle:nil
                                    message:nil

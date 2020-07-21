@@ -67,7 +67,7 @@
 		ED06F92E24BE496400DF2FCD /* Member.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Member.h; sourceTree = "<group>"; };
 		ED06F92F24BE496400DF2FCD /* Member.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Member.m; sourceTree = "<group>"; };
 		ED06F93124BE4A8E00DF2FCD /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = LoginViewController.h; path = GroupStatus/LoginViewController.h; sourceTree = SOURCE_ROOT; };
-		ED06F93224BE4A8E00DF2FCD /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = LoginViewController.m; path = GroupStatus/LoginViewController.m; sourceTree = SOURCE_ROOT; };
+		ED06F93224BE4A8E00DF2FCD /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = LoginViewController.m; path = GroupStatus/LoginViewController.m; sourceTree = SOURCE_ROOT; wrapsLines = 0; };
 		ED14013424BCB57E00138A18 /* GroupStatus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GroupStatus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED14013724BCB57E00138A18 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		ED14013824BCB57E00138A18 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
