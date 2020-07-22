@@ -20,6 +20,7 @@
 @dynamic   memberCount ;
 @dynamic  members;
 @dynamic   image;
+@dynamic timelineCreated;
 
 + (nonnull NSString *)parseClassName {
     return @"Group";
@@ -39,6 +40,7 @@
         self.memberCount = @(1);
         self.image = [self.class getPFFileFromImageGiven:image];
         self.members = [NSMutableArray new];
+        self.timelineCreated = @(NO);
 
     }
     return self;

@@ -7,11 +7,13 @@
 //
 
 #import "ViewController.h"
-
+#import "Timeline.h"
+#import "Group.h"
 NS_ASSUME_NONNULL_BEGIN
 
 @interface TimelineViewController : ViewController
-
+@property (nonatomic,strong) Timeline *timeline;
+@property (nonatomic,strong) Group *group;
 @end
 
 NS_ASSUME_NONNULL_END
