@@ -49,3 +49,11 @@ Users can create groups with friends/family members, in these groups they can ch
 * Users can sing in with Twitter account
 * Users can post pictures on an event description.
 
+## Progress Videos
+
+<img src='http://g.recordit.co/RVPp3eqrGE.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='http://g.recordit.co/DWHELOOSfP.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='http://g.recordit.co/Yr4X6n1xXj.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+
+
+
