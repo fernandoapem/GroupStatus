@@ -16,6 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,strong,readwrite) NSMutableArray *groups;
 @property (nonatomic,strong,nullable,readwrite) PFFileObject *profilePicture;
 @property (nonatomic,copy,readwrite) NSString *status;
+@property (nonatomic,copy,readwrite) NSString *currentTimelineId;
 
 -(instancetype) initWithStatus:(NSString *)status withUsername:(NSString *)username withPassword:(NSString *)password;
 +(void)saveMemberOnServer:(Member*) member withCompletion:(PFBooleanResultBlock)completion;

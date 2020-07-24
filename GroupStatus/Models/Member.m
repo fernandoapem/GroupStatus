@@ -13,6 +13,7 @@
 @dynamic groups;
 @dynamic profilePicture;
 @dynamic status;
+@dynamic currentTimelineId;
 
 -(instancetype)initWithStatus:(NSString *)status withUsername:(NSString *)username withPassword:(NSString *)password
 {
@@ -24,6 +25,7 @@
         self.status = status;
         self.groups = [NSMutableArray new];
         self.profilePicture = nil;
+        self.currentTimelineId = @"";
     }
     return self;
 }
