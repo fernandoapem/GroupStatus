@@ -40,7 +40,7 @@
         self.memberCount = @(1);
         self.image = [self.class getPFFileFromImageGiven:image];
         self.members = [NSMutableArray new];
-        self.timelineCreated = @(NO);
+        self.timelineCreated = NO;
 
     }
     return self;

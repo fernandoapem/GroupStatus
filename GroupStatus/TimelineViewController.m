@@ -78,7 +78,7 @@
         if(succeeded){
             NSLog(@"Timeline created");
             [self updateTimeline];
-            self.group.timelineCreated = @(YES);
+            self.group.timelineCreated = YES;
             [self.group saveInBackground];
             [self fetchEvents];
         }
