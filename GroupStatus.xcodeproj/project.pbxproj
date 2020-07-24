@@ -31,6 +31,8 @@
 		ED460D3924BF58F8008FE71A /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED460D3824BF58F8008FE71A /* ProfileViewController.m */; };
 		ED460D3C24C0DAA3008FE71A /* GroupCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ED460D3B24C0DAA3008FE71A /* GroupCell.m */; };
 		EDC4342224C88F690001DD06 /* SelectGroupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDC4342124C88F690001DD06 /* SelectGroupViewController.m */; };
+		EDC4342524CA13B10001DD06 /* TimelineCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EDC4342424CA13B10001DD06 /* TimelineCell.m */; };
+		EDC4342824CA37640001DD06 /* CreateEventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDC4342724CA37640001DD06 /* CreateEventViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -101,6 +103,10 @@
 		ED460D3B24C0DAA3008FE71A /* GroupCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = GroupCell.m; path = GroupStatus/GroupCell.m; sourceTree = SOURCE_ROOT; };
 		EDC4342024C88F690001DD06 /* SelectGroupViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SelectGroupViewController.h; path = GroupStatus/SelectGroupViewController.h; sourceTree = SOURCE_ROOT; };
 		EDC4342124C88F690001DD06 /* SelectGroupViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = SelectGroupViewController.m; path = GroupStatus/SelectGroupViewController.m; sourceTree = SOURCE_ROOT; };
+		EDC4342324CA13B10001DD06 /* TimelineCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TimelineCell.h; sourceTree = "<group>"; };
+		EDC4342424CA13B10001DD06 /* TimelineCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TimelineCell.m; sourceTree = "<group>"; };
+		EDC4342624CA37640001DD06 /* CreateEventViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CreateEventViewController.h; path = GroupStatus/CreateEventViewController.h; sourceTree = SOURCE_ROOT; };
+		EDC4342724CA37640001DD06 /* CreateEventViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = CreateEventViewController.m; path = GroupStatus/CreateEventViewController.m; sourceTree = SOURCE_ROOT; };
 		F28444D7B0C794DC539CA097 /* Pods-GroupStatus-GroupStatusUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GroupStatus-GroupStatusUITests.release.xcconfig"; path = "Target Support Files/Pods-GroupStatus-GroupStatusUITests/Pods-GroupStatus-GroupStatusUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -158,6 +164,8 @@
 		ED06F92224BCBF0600DF2FCD /* View Controller */ = {
 			isa = PBXGroup;
 			children = (
+				EDC4342624CA37640001DD06 /* CreateEventViewController.h */,
+				EDC4342724CA37640001DD06 /* CreateEventViewController.m */,
 				EDC4342024C88F690001DD06 /* SelectGroupViewController.h */,
 				EDC4342124C88F690001DD06 /* SelectGroupViewController.m */,
 				ED2D69ED24C20EC3006347E2 /* JoinGroupViewController.h */,
@@ -196,6 +204,8 @@
 			children = (
 				ED460D3A24C0DAA3008FE71A /* GroupCell.h */,
 				ED460D3B24C0DAA3008FE71A /* GroupCell.m */,
+				EDC4342324CA13B10001DD06 /* TimelineCell.h */,
+				EDC4342424CA13B10001DD06 /* TimelineCell.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -512,9 +522,11 @@
 				ED2D69EF24C20EC3006347E2 /* JoinGroupViewController.m in Sources */,
 				ED14014A24BCB57F00138A18 /* main.m in Sources */,
 				ED14013C24BCB57E00138A18 /* SceneDelegate.m in Sources */,
+				EDC4342824CA37640001DD06 /* CreateEventViewController.m in Sources */,
 				ED460D3C24C0DAA3008FE71A /* GroupCell.m in Sources */,
 				ED460D3924BF58F8008FE71A /* ProfileViewController.m in Sources */,
 				ED460D3624BF5714008FE71A /* TimelineViewController.m in Sources */,
+				EDC4342524CA13B10001DD06 /* TimelineCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -12,9 +12,10 @@
 @end
 @implementation Timeline
 
-
+@dynamic events;
 @dynamic groupID;
 @dynamic eventCount;
+@dynamic currentDate;
 
 + (nonnull NSString *)parseClassName {
     return @"Timeline";
@@ -27,8 +28,9 @@
 {
     if(self = [super init])
     {
-    self.groupID=groupId;
-    self.eventCount = @(0);
+        self.groupID=groupId;
+        self.eventCount = @(0);
+        self.events = [NSMutableArray new];
     }
     return self;
 }

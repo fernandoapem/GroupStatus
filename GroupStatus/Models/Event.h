@@ -12,11 +12,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface Event : PFObject <PFSubclassing>
 @property (nonatomic,copy,readonly) NSString *timelineId;
-@property (nonatomic,strong,readwrite) NSDate *time;
+@property (nonatomic,strong,readonly) NSString *timeString;
 @property (nonatomic,copy,readonly) NSString *eventName;
 @property (nonatomic,copy,readonly) NSString *eventDescription;
 @property (nonatomic,strong,readwrite) NSNumber *membersAttending;
--(instancetype) initWithEventName:(NSString *)name withDescription:(NSString *)description withTime:(NSDate *)time;
+@property (nonatomic) BOOL isFree;
+@property (nonatomic) BOOL isActivity;
+-(instancetype)initWithEventName:(NSString *)name withDescription:(NSString *)description withTime:(NSDate *)time withTimelineId:(NSString *)timeline;
+-(void)updateEvent:(Event *)event WithEventName:(NSString *)name withDescription:(NSString *)description withTime:(NSDate *)time withTimelineId:(NSString *)timeline;
 +(void) saveEventOnServer:(Event *)event withCompletion: (PFBooleanResultBlock  _Nullable)completion;
 @end
 

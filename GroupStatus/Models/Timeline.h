@@ -14,6 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,copy,readonly) NSString *groupID;
 @property (nonatomic,strong,readwrite) NSNumber *eventCount;
 @property (nonatomic,strong,readwrite) NSMutableArray *events;
+@property (nonatomic,strong) NSDate *currentDate;
 -(instancetype) initWithGroupID:(NSString *) groupId;
 +(void)saveTimelineOnServer:(Timeline*) timeline withCompletion:(PFBooleanResultBlock)completion;
 
