@@ -9,9 +9,12 @@
 #import "ProfileViewController.h"
 #import "Member.h"
 #import <Parse/Parse.h>
-
+@import Parse;
 @interface ProfileViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *usernameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *statusLabel;
+@property (weak, nonatomic) IBOutlet UILabel *groupCountLabel;
+@property (weak, nonatomic) IBOutlet PFImageView *profilePicture;
 
 @end
 
@@ -19,9 +22,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-   
     
+    Member *currentMember = [Member currentUser];
+    self.usernameLabel.text = [currentMember username];
+    self.statusLabel.text = [currentMember status];
+    self.groupCountLabel.text =[NSString stringWithFormat:@"%@", [currentMember groupNumber]];
 }
 
 /*
