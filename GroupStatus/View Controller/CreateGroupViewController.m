@@ -28,7 +28,7 @@
 - (IBAction)onCreateTap:(id)sender {
 
     Member *currentMember = [Member currentUser];
-    Group *group = [[Group alloc] initWithGroupName:self.nameTextField.text withDescription:self.descriptionView.text withMember:currentMember withImage:nil];
+    Group *group = [[Group alloc] initWithGroupName:self.nameTextField.text Description:self.descriptionView.text Image:nil];
     
     [Group saveGroupOnServer:group withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
         if(succeeded)
@@ -45,8 +45,8 @@
 }
 -(void) addMember:(Member *)currentMember toGroup:(Group*)group
 {
-    NSLog(@"%@",[group objectId]);
-    [currentMember addObject:[group objectId] forKey:@"groups"];
+   
+    [currentMember addNewGroup:group];
     
     int value = [currentMember.groupNumber intValue];
     currentMember.groupNumber = [NSNumber numberWithInt:value + 1];

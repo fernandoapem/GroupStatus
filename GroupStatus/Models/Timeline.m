@@ -7,6 +7,7 @@
 //
 
 #import "Timeline.h"
+#import "Event.h"
 @interface Timeline()
 @property (readwrite) NSString *groupID;
 @end
@@ -22,17 +23,24 @@
 }
 + (void)saveTimelineOnServer:(Timeline *)timeline withCompletion:(PFBooleanResultBlock)completion
 {
- [timeline saveInBackgroundWithBlock:completion];
+    [timeline saveInBackgroundWithBlock:completion];
 }
 -(instancetype)initWithGroupID:(NSString *)groupId
 {
     if(self = [super init])
     {
-        self.groupID=groupId;
+        self.groupID = groupId;
         self.eventCount = @(0);
         self.events = [NSMutableArray new];
     }
     return self;
 }
-
+-(void)addEvent:(Event *)event 
+{
+    [self addObject:[event objectId] forKey:@"events"];
+    int value = [self.eventCount intValue];
+    self.eventCount = [NSNumber numberWithInt:value + 1];
+    [self saveInBackground];
+    NSLog(@"Event Created!!!!");
+}
 @end

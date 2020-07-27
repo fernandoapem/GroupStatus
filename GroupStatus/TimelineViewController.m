@@ -28,6 +28,11 @@
     // Do any additional setup after loading the view.
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
+    
+    UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
+    [refreshControl addTarget:self action:@selector(beginRefresh:) forControlEvents:UIControlEventValueChanged];
+    [self.tableView insertSubview:refreshControl atIndex:0];
+    
     [self loadTimeline];
 
     self.titleBar.title = [NSString stringWithFormat:@"%@'s Timeline",self.group.groupName];
@@ -134,7 +139,16 @@
 */
 
 
+- (void)beginRefresh:(UIRefreshControl *)refreshControl {
 
+           // ... Use the new data to update the data source ...
+            [self loadTimeline];
+           // Reload the tableView now that there is new data
+            [self.tableView reloadData];
+           // Tell the refreshControl to stop spinning
+            [refreshControl endRefreshing];
+    
+}
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     TimelineCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TimelineCell"];
     cell.event = self.timeline.events[indexPath.row];

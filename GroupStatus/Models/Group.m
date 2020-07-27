@@ -7,7 +7,7 @@
 //
 
 #import "Group.h"
-#import "Member.h"
+
 #import <Parse/Parse.h>
 @interface Group()
 @property (readwrite) NSString *groupName;
@@ -32,7 +32,7 @@
     [group saveInBackgroundWithBlock: completion];
 }
 
--(instancetype)initWithGroupName:(NSString *)name withDescription:(NSString *)description withMember:(Member *)member withImage:(UIImage *)image {
+-(instancetype)initWithGroupName:(NSString *)name Description:(NSString *)description  Image:(UIImage *)image {
     if(self = [super init])
     {
         self.groupName = name;

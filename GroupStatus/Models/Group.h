@@ -7,7 +7,7 @@
 //
 
 #import <Parse/Parse.h>
-#import "Member.h"
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface Group : PFObject<PFSubclassing>
@@ -18,8 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong,readwrite) PFFileObject *image;
 @property (nonatomic) BOOL timelineCreated;
 +(PFFileObject *)getPFFileFromImageGiven: (UIImage * _Nullable)image;
--(instancetype) initWithGroupName:( NSString *) name withDescription: (NSString * )description withMember:(Member *)member withImage: ( UIImage * _Nullable )image;
-
+-(instancetype) initWithGroupName:( NSString *) name Description: (NSString * )description Image: ( UIImage * _Nullable )image;
 + (void) saveGroupOnServer:(Group *)group withCompletion: (PFBooleanResultBlock  _Nullable)completion;
 
 @end

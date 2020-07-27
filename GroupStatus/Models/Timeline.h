@@ -7,6 +7,7 @@
 //
 
 #import <Parse/Parse.h>
+#import "Event.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -17,6 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,strong) NSDate *currentDate;
 -(instancetype) initWithGroupID:(NSString *) groupId;
 +(void)saveTimelineOnServer:(Timeline*) timeline withCompletion:(PFBooleanResultBlock)completion;
+-(void)addEvent:(Event *)event;
 
 @end
 

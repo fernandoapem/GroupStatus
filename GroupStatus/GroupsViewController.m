@@ -26,13 +26,17 @@
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     
+    UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
+    [refreshControl addTarget:self action:@selector(beginRefresh:) forControlEvents:UIControlEventValueChanged];
+    [self.tableView insertSubview:refreshControl atIndex:0];
+    
     [self fetchGroups];
 }
 -(void) fetchGroups
 {
     Member *currentMember = [Member currentUser];
     PFQuery *groupQuery = [Group query];
-    [groupQuery whereKey:@"objectId" containedIn:currentMember.groups];
+    [groupQuery whereKey:@"objectId" containedIn:[currentMember groupsJoined] ];
     [groupQuery findObjectsInBackgroundWithBlock:^(NSArray<Group *> * _Nullable groups, NSError * _Nullable error) {
         if(groups)
         {
@@ -78,11 +82,20 @@
     // Pass the selected object to the new view controller.
 }
 */
+- (void)beginRefresh:(UIRefreshControl *)refreshControl {
 
+           // ... Use the new data to update the data source ...
+            [self fetchGroups];
+           // Reload the tableView now that there is new data
+            [self.tableView reloadData];
+           // Tell the refreshControl to stop spinning
+            [refreshControl endRefreshing];
+    
+}
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     GroupCell *cell = [tableView dequeueReusableCellWithIdentifier:@"GroupCell"];
     cell.group = self.groups[indexPath.row];
-    [cell setGroup:cell.group];
+    cell.group = cell.group;
     return cell;
 }
 

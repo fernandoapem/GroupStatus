@@ -32,11 +32,11 @@
 }
 - (IBAction)tapOnCreate:(id)sender {
     
-    Event *event = [[Event alloc] initWithEventName:self.nameTextField.text withDescription:self.descriptionTextView.text withTime:self.datePicker.date withTimelineId:[self.timeline objectId]];
+    Event *event = [[Event alloc] initWithEventName:self.nameTextField.text Description:self.descriptionTextView.text Time:self.datePicker.date TimelineId:[self.timeline objectId]];
     [Event saveEventOnServer:event withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
         if(succeeded)
         { 
-            [self addEvent:event toTimeline:self.timeline];
+            [self.timeline addEvent:event];
         }
         else
         {
@@ -56,14 +56,6 @@
             
         }
     }];
-}
--(void)addEvent:(Event *)event toTimeline:(Timeline *)timeline
-{
-    [timeline addObject:[event objectId] forKey:@"events"];
-    int value = [timeline.eventCount intValue];
-    timeline.eventCount = [NSNumber numberWithInt:value + 1];
-    [timeline saveInBackground];
-    NSLog(@"Event Created!!!!");
 }
 
 

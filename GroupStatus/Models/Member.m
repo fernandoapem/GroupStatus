@@ -7,6 +7,10 @@
 //
 
 #import "Member.h"
+#import "Group.h"
+@interface Member()
+@property (nonatomic,strong,readwrite) NSMutableArray *groups;
+@end
 
 @implementation Member
 @dynamic groupNumber;
@@ -32,6 +36,14 @@
 +(void) saveMemberOnServer:(Member *)member withCompletion:(PFBooleanResultBlock)completion
 {
     [member saveInBackgroundWithBlock:completion];
+}
+-(void) addNewGroup:(Group *)group
+{
+    [self addObject:[group objectId] forKey:@"groups"];
+}
+-(NSMutableArray<Group*> *)groupsJoined
+{
+    return self.groups;
 }
 
 +(void)updateProfilePic

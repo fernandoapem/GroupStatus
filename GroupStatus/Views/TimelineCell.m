@@ -11,22 +11,13 @@
 
 @implementation TimelineCell
 
-- (void)awakeFromNib {
-    [super awakeFromNib];
-    // Initialization code
-}
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
-}
 - (void)setEvent:(Event *)event
 {
     _event = event;
     self.activityLabel.text = [event eventDescription];
     self.timeLabel.text = [event timeString];
-    self.activityLabel.text = @"Event";
+    self.actionLabel.text = [event eventName];
     
 }
 @end
