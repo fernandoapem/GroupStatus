@@ -30,6 +30,7 @@
 		ED460D3624BF5714008FE71A /* TimelineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED460D3524BF5714008FE71A /* TimelineViewController.m */; };
 		ED460D3924BF58F8008FE71A /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED460D3824BF58F8008FE71A /* ProfileViewController.m */; };
 		ED460D3C24C0DAA3008FE71A /* GroupCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ED460D3B24C0DAA3008FE71A /* GroupCell.m */; };
+		ED5565A424D091C5000D1013 /* EditProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED5565A324D091C5000D1013 /* EditProfileViewController.m */; };
 		EDC4342224C88F690001DD06 /* SelectGroupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDC4342124C88F690001DD06 /* SelectGroupViewController.m */; };
 		EDC4342524CA13B10001DD06 /* TimelineCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EDC4342424CA13B10001DD06 /* TimelineCell.m */; };
 		EDC4342824CA37640001DD06 /* CreateEventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDC4342724CA37640001DD06 /* CreateEventViewController.m */; };
@@ -101,6 +102,8 @@
 		ED460D3824BF58F8008FE71A /* ProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = ProfileViewController.m; path = GroupStatus/ProfileViewController.m; sourceTree = SOURCE_ROOT; };
 		ED460D3A24C0DAA3008FE71A /* GroupCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GroupCell.h; path = GroupStatus/GroupCell.h; sourceTree = SOURCE_ROOT; };
 		ED460D3B24C0DAA3008FE71A /* GroupCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = GroupCell.m; path = GroupStatus/GroupCell.m; sourceTree = SOURCE_ROOT; };
+		ED5565A224D091C5000D1013 /* EditProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = EditProfileViewController.h; path = GroupStatus/EditProfileViewController.h; sourceTree = SOURCE_ROOT; };
+		ED5565A324D091C5000D1013 /* EditProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = EditProfileViewController.m; path = GroupStatus/EditProfileViewController.m; sourceTree = SOURCE_ROOT; };
 		EDC4342024C88F690001DD06 /* SelectGroupViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SelectGroupViewController.h; path = GroupStatus/SelectGroupViewController.h; sourceTree = SOURCE_ROOT; };
 		EDC4342124C88F690001DD06 /* SelectGroupViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = SelectGroupViewController.m; path = GroupStatus/SelectGroupViewController.m; sourceTree = SOURCE_ROOT; };
 		EDC4342324CA13B10001DD06 /* TimelineCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TimelineCell.h; sourceTree = "<group>"; };
@@ -164,6 +167,8 @@
 		ED06F92224BCBF0600DF2FCD /* View Controller */ = {
 			isa = PBXGroup;
 			children = (
+				ED5565A224D091C5000D1013 /* EditProfileViewController.h */,
+				ED5565A324D091C5000D1013 /* EditProfileViewController.m */,
 				EDC4342624CA37640001DD06 /* CreateEventViewController.h */,
 				EDC4342724CA37640001DD06 /* CreateEventViewController.m */,
 				EDC4342024C88F690001DD06 /* SelectGroupViewController.h */,
@@ -516,6 +521,7 @@
 				ED06F93024BE496400DF2FCD /* Member.m in Sources */,
 				ED06F92D24BE47E700DF2FCD /* Timeline.m in Sources */,
 				ED06F93324BE4A8E00DF2FCD /* LoginViewController.m in Sources */,
+				ED5565A424D091C5000D1013 /* EditProfileViewController.m in Sources */,
 				ED460D3324BF56A0008FE71A /* GroupsViewController.m in Sources */,
 				ED06F92724BE0A2D00DF2FCD /* Group.m in Sources */,
 				ED2D69EC24C100CC006347E2 /* CreateGroupViewController.m in Sources */,

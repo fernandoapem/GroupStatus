@@ -1,22 +1,21 @@
 //
-//  CreateGroupViewController.m
+//  EditProfileViewController.m
 //  GroupStatus
 //
-//  Created by Fernando Arturo Perez on 7/16/20.
+//  Created by Fernando Arturo Perez on 7/28/20.
 //  Copyright © 2020 Fernando Arturo Perez. All rights reserved.
 //
 
-#import "CreateGroupViewController.h"
+#import "EditProfileViewController.h"
 #import "Member.h"
-#import "Group.h"
+#import <Parse/Parse.h>
 
-@interface CreateGroupViewController ()
-@property (weak, nonatomic) IBOutlet UITextField *nameTextField;
-@property (weak, nonatomic) IBOutlet UITextView *descriptionView;
+@interface EditProfileViewController ()
+@property (weak, nonatomic) IBOutlet UITextField *statusTextField;
 
 @end
 
-@implementation CreateGroupViewController
+@implementation EditProfileViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -24,22 +23,14 @@
 }
 - (IBAction)onCancelTap:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
+    
 }
-- (IBAction)onCreateTap:(id)sender {
-
+- (IBAction)onUpdateTap:(id)sender {
+    Member *currentMember = [Member currentUser];
+    currentMember.status = self.statusTextField.text;
+    [currentMember saveInBackground];
     
-    Group *group = [[Group alloc] initWithGroupName:self.nameTextField.text Description:self.descriptionView.text Image:nil];
     
-    [Group saveGroupOnServer:group withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
-        if(succeeded)
-        {
-            [group addMember];
-        }
-        else
-        {
-            
-        }
-    }];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 

@@ -1,19 +1,16 @@
 //
-//  CreateGroupViewController.h
+//  EditProfileViewController.h
 //  GroupStatus
 //
-//  Created by Fernando Arturo Perez on 7/16/20.
+//  Created by Fernando Arturo Perez on 7/28/20.
 //  Copyright © 2020 Fernando Arturo Perez. All rights reserved.
 //
 
 #import "ViewController.h"
-#import "Member.h"
-#import "Group.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface CreateGroupViewController : ViewController
-
+@interface EditProfileViewController : ViewController
 
 @end
 

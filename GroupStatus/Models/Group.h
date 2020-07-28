@@ -20,6 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
 +(PFFileObject *)getPFFileFromImageGiven: (UIImage * _Nullable)image;
 -(instancetype) initWithGroupName:( NSString *) name Description: (NSString * )description Image: ( UIImage * _Nullable )image;
 + (void) saveGroupOnServer:(Group *)group withCompletion: (PFBooleanResultBlock  _Nullable)completion;
+-(void) addMember;
 
 @end
 
