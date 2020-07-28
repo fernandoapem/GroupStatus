@@ -12,6 +12,7 @@
 @interface Group()
 @property (readwrite) NSString *groupName;
 @property (readwrite) NSString *groupDescription;
+@property (nonatomic,strong,nullable,readwrite) NSMutableArray *members;
 @end
 
 @implementation Group
@@ -27,11 +28,11 @@
 }
 
 
-+ (void) saveGroupOnServer: (Group *)group withCompletion: (PFBooleanResultBlock  _Nullable)completion {
++ (void) saveGroupOnServer: (Group *)group completion: (PFBooleanResultBlock  _Nullable)completion {
  
     [group saveInBackgroundWithBlock: completion];
 }
--(void) addMember
+-(void) addGrouptoMember
 {
     Member *currentMember = [Member currentUser];
     [currentMember addNewGroup:self];
@@ -39,9 +40,17 @@
     int value = [currentMember.groupNumber intValue];
     currentMember.groupNumber = [NSNumber numberWithInt:value + 1];
     [currentMember saveInBackground];
-    
 }
--(instancetype)initWithGroupName:(NSString *)name Description:(NSString *)description  Image:(UIImage *)image {
+-(void) addNewMember:(NSString *)memberId
+{
+    [self addObject:memberId forKey:@"members"];
+    [self saveInBackground];
+}
+-(NSMutableArray *) membersInGroup
+{
+    return self.members;
+}
+-(instancetype)initWithGroupName:(NSString *)name description:(NSString *)description  image:(UIImage *)image {
     if(self = [super init])
     {
         self.groupName = name;
@@ -50,6 +59,7 @@
         self.image = [self.class getPFFileFromImageGiven:image];
         self.members = [NSMutableArray new];
         self.timelineCreated = NO;
+        
 
     }
     return self;

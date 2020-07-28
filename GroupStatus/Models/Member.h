@@ -18,8 +18,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,copy,readwrite) NSString *currentTimelineId;
 - (void)addNewGroup:(Group *)group;
 -(NSMutableArray<Group*> *)groupsJoined;
--(instancetype) initWithStatus:(NSString *)status withUsername:(NSString *)username withPassword:(NSString *)password;
-+(void)saveMemberOnServer:(Member*) member withCompletion:(PFBooleanResultBlock)completion;
+-(instancetype) initWithStatus:(NSString *)status username:(NSString *)username password:(NSString *)password;
++(void)saveMemberOnServer:(Member*) member completion:(PFBooleanResultBlock)completion;
 
 @end
 

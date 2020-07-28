@@ -9,7 +9,7 @@
 #import "Member.h"
 #import "Group.h"
 @interface Member()
-@property (nonatomic,strong,readwrite) NSMutableArray *groups;
+@property (nonatomic,strong,readwrite) NSMutableArray<Group *>  *groups;
 @end
 
 @implementation Member
@@ -19,7 +19,7 @@
 @dynamic status;
 @dynamic currentTimelineId;
 
--(instancetype)initWithStatus:(NSString *)status withUsername:(NSString *)username withPassword:(NSString *)password
+-(instancetype)initWithStatus:(NSString *)status username:(NSString *)username password:(NSString *)password
 {
     if(self = [super init])
     {
@@ -33,7 +33,7 @@
     }
     return self;
 }
-+(void) saveMemberOnServer:(Member *)member withCompletion:(PFBooleanResultBlock)completion
++(void) saveMemberOnServer:(Member *)member completion:(PFBooleanResultBlock)completion
 {
     [member saveInBackgroundWithBlock:completion];
 }

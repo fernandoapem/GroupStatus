@@ -26,16 +26,18 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 - (IBAction)onCreateTap:(id)sender {
-
     
-    Group *group = [[Group alloc] initWithGroupName:self.nameTextField.text Description:self.descriptionView.text Image:nil];
+    Group *group = [[Group alloc] initWithGroupName:self.nameTextField.text description:self.descriptionView.text image:nil];
+    Member *currentMember = [Member currentUser];
     
-    [Group saveGroupOnServer:group withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
+    [Group saveGroupOnServer:group completion:^(BOOL succeeded, NSError * _Nullable error) {
         if(succeeded)
         {
-            [group addMember];
+            [group addGrouptoMember];
+            [group addNewMember:[currentMember objectId]];
+            
         }
-        else
+        else    
         {
             
         }

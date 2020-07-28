@@ -41,7 +41,8 @@
             int value = [currentGroup.memberCount intValue];
             currentGroup.memberCount = [NSNumber numberWithInt:value + 1]; //increment member count
             
-            [currentGroup.members addObject:[currentMember objectId]];//add member to member array
+          
+            [currentGroup addNewMember:[currentMember objectId]];
             
             [currentGroup saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
                 if(succeeded)

@@ -60,7 +60,7 @@
 {
     Member *currentMember = [Member currentUser];
     currentMember.currentTimelineId = [self.timeline objectId];
-    [Member saveMemberOnServer:currentMember withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
+    [Member saveMemberOnServer:currentMember completion:^(BOOL succeeded, NSError * _Nullable error) {
         if(succeeded)
         {
             NSLog(@"Timeline Updated");

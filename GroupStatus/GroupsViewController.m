@@ -11,7 +11,7 @@
 #import "Group.h"
 #import "GroupCell.h"
 #import "Member.h"
-
+#import "GroupDetailViewController.h"
 
 @interface GroupsViewController ()<UITableViewDataSource,UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -73,15 +73,23 @@
     [alert addAction:joinAction];
     [self presentViewController:alert animated:YES completion:nil];
 }
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+     if([sender isKindOfClass:[UITableViewCell class]]){
+    UITableViewCell *tappedCell = sender;
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:tappedCell];
+    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    Group *group = self.groups[indexPath.row];
+    GroupDetailViewController  *viewController = [segue destinationViewController];
+    viewController.group = group;
+     }
+    
 }
-*/
+
 - (void)beginRefresh:(UIRefreshControl *)refreshControl {
 
            // ... Use the new data to update the data source ...
@@ -95,7 +103,7 @@
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     GroupCell *cell = [tableView dequeueReusableCellWithIdentifier:@"GroupCell"];
     cell.group = self.groups[indexPath.row];
-    cell.group = cell.group;
+    
     return cell;
 }
 

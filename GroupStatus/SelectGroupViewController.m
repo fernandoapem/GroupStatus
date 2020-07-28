@@ -84,7 +84,7 @@
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     GroupCell *cell = [tableView dequeueReusableCellWithIdentifier:@"GroupCell"];
     cell.group = self.groups[indexPath.row];
-    [cell setGroup:cell.group];
+ 
     return cell;
 }
 

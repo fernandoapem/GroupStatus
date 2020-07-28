@@ -14,13 +14,14 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,strong,readwrite) NSNumber *memberCount;
 @property (nonatomic,copy,readonly) NSString *groupName;
 @property (nonatomic,copy,readonly) NSString *groupDescription;
-@property (nonatomic,strong,nullable,readwrite) NSMutableArray *members;
 @property (nonatomic, strong,readwrite) PFFileObject *image;
 @property (nonatomic) BOOL timelineCreated;
 +(PFFileObject *)getPFFileFromImageGiven: (UIImage * _Nullable)image;
--(instancetype) initWithGroupName:( NSString *) name Description: (NSString * )description Image: ( UIImage * _Nullable )image;
-+ (void) saveGroupOnServer:(Group *)group withCompletion: (PFBooleanResultBlock  _Nullable)completion;
--(void) addMember;
+-(instancetype) initWithGroupName:( NSString *) name description: (NSString * )description image: ( UIImage * _Nullable )image;
++ (void) saveGroupOnServer:(Group *)group completion: (PFBooleanResultBlock  _Nullable)completion;
+-(void) addGrouptoMember;
+-(void) addNewMember:(NSString *)memberId;
+-(NSMutableArray *) membersInGroup;
 
 @end
 
