@@ -29,6 +29,8 @@
     self.tableView.delegate = self;
     
     self.groupNameLabel.text = [self.group groupName];
+    self.groupCountLabel.text = [NSString stringWithFormat:@"%@", [self.group memberCount]];
+    self.groupDescription.text = [self.group groupDescription];
     [self fetchMember];
 }
 

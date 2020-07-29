@@ -32,7 +32,7 @@
 }
 - (IBAction)tapOnCreate:(id)sender {
     
-    Event *event = [[Event alloc] initWithEventName:self.nameTextField.text Description:self.descriptionTextView.text Time:self.datePicker.date TimelineId:[self.timeline objectId]];
+    Event *event = [[Event alloc] initWithEventName:self.nameTextField.text description:self.descriptionTextView.text time:self.datePicker.date timelineId:[self.timeline objectId] link:self.linkTextField.text];
     [Event saveEventOnServer:event withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
         if(succeeded)
         { 

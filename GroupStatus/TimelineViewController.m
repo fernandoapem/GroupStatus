@@ -12,7 +12,10 @@
 #import "Timeline.h"
 #import "TimelineCell.h"
 #import "CreateEventViewController.h"
+#import "EventDetailViewController.h"
 #import "Member.h"
+#import "Event.h"
+
 @interface TimelineViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UINavigationItem *titleBar;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -127,16 +130,25 @@
     [self presentViewController:alert animated:YES completion:nil];
     
 }
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-  
+    
+    if([sender isKindOfClass:[UITableViewCell class]]){
+        UITableViewCell *tappedCell = sender;
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:tappedCell];
+        [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+        
+        Event *event = self.timeline.events[indexPath.row];
+        EventDetailViewController  *viewController = [segue destinationViewController];
+        viewController.event = event;
+        
+    }
+    
 }
-*/
+
 
 
 - (void)beginRefresh:(UIRefreshControl *)refreshControl {
@@ -152,7 +164,7 @@
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     TimelineCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TimelineCell"];
     cell.event = self.timeline.events[indexPath.row];
-    [cell setEvent:cell.event];
+    
     return cell;
 }
 

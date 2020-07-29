@@ -23,12 +23,13 @@
 @dynamic membersAttending;
 @dynamic isFree;
 @dynamic isActivity;
+@dynamic link;
 
 + (nonnull NSString *)parseClassName {
     return @"Event";
 }
 
--(instancetype)initWithEventName:(NSString *)name Description:(NSString *)description Time:(NSDate *)time TimelineId:(NSString *)timeline
+-(instancetype)initWithEventName:(NSString *)name description:(NSString *)description time:(NSDate *)time timelineId:(NSString *)timeline link:(NSString *)link
 {
     if(self = [super init])
     {
@@ -39,10 +40,11 @@
         self.timeString = [dateFormat stringFromDate:time];
         self.timelineId = timeline;
         self.isFree = NO;
+        self.link = link;
     }
      return self;
 }
--(void)updateEvent:(Event *)event EventName:(NSString *)name Description:(NSString *)description Time:(NSDate *)time TimelineId:(NSString *)timeline{
+-(void)updateEvent:(Event *)event eventName:(NSString *)name description:(NSString *)description time:(NSDate *)time TimelineId:(NSString *)timeline{
     
 }
 

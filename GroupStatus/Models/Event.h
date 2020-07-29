@@ -16,10 +16,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,copy,readonly) NSString *eventName;
 @property (nonatomic,copy,readonly) NSString *eventDescription;
 @property (nonatomic,strong,readwrite) NSNumber *membersAttending;
+@property (nonatomic,copy) NSString *link;
 @property (nonatomic) BOOL isFree;
 @property (nonatomic) BOOL isActivity;
--(instancetype)initWithEventName:(NSString *)name Description:(NSString *)description Time:(NSDate *)time TimelineId:(NSString *)timeline;
--(void)updateEvent:(Event *)event EventName:(NSString *)name Description:(NSString *)description Time:(NSDate *)time TimelineId:(NSString *)timeline;
+-(instancetype)initWithEventName:(NSString *)name description:(NSString *)description time:(NSDate *)time timelineId:(NSString *)timeline link:(NSString*)link;
+-(void)updateEvent:(Event *)event eventName:(NSString *)name description:(NSString *)description time:(NSDate *)time timelineId:(NSString *)timeline;
 +(void) saveEventOnServer:(Event *)event withCompletion: (PFBooleanResultBlock  _Nullable)completion;
 @end
 
