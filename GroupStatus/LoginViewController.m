@@ -12,9 +12,12 @@
 #import "Timeline.h"
 #import "Event.h"
 #import <Parse/Parse.h>
+#import <GoogleSignIn/GoogleSignIn.h>
+
 @interface LoginViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *usernameTextField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
+@property (readonly, nonatomic) GIDGoogleUser *currentUser;
 
 @end
 
@@ -23,9 +26,29 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [GIDSignIn sharedInstance].presentingViewController = self;
+
+    // Automatically sign in the user.
+    [[GIDSignIn sharedInstance] restorePreviousSignIn];
+    
+    
+    
     
     
 }
+-(void)viewDidAppear:(BOOL)animated
+{
+    Member *currentMember = [Member currentUser];
+    if(currentMember)
+    {
+        
+        [self performSegueWithIdentifier:@"loginSegue" sender:nil];
+    }
+}
+- (IBAction)tapOnGoogleSignUp:(id)sender {
+
+}
+
 - (IBAction)tapOnSignUp:(id)sender {
     Member *member = [[Member alloc] initWithStatus:@"Starter" username:self.usernameTextField.text password:self.passwordTextField.text];
 

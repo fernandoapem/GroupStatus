@@ -8,6 +8,9 @@
 
 #import "AppDelegate.h"
 #import <Parse/Parse.h>
+#import "Member.h"
+#import "LoginViewController.h"
+
 @interface AppDelegate ()
 
 @end
@@ -25,9 +28,71 @@
     
     [Parse initializeWithConfiguration:config];
     
+    [GIDSignIn sharedInstance].clientID = @"185786784499-2sc4ccghhlt0o10uuvb3kj926300o18h.apps.googleusercontent.com";
+    [GIDSignIn sharedInstance].delegate = self;
+   
+
+       
+    
     // Override point for customization after application launch.
     return YES;
 }
+- (void)signIn:(GIDSignIn *)signIn
+didSignInForUser:(GIDGoogleUser *)user
+     withError:(NSError *)error {
+  if (error != nil) {
+    if (error.code == kGIDSignInErrorCodeHasNoAuthInKeychain) {
+      NSLog(@"The user has not signed in before or they have since signed out.");
+    } else {
+      NSLog(@"%@", error.localizedDescription);
+    }
+    return;
+  }
+//  // Perform any operations on signed in user here.
+    Member *member = [[Member alloc] initWithStatus:@"Starter" username:user.profile.givenName password:user.profile.familyName];
+    [member signUpInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+        if(succeeded)
+        {
+            NSLog(@"User signed up successfully");
+            [Member saveMemberOnServer:member completion:^(BOOL succeeded, NSError * _Nullable error) {
+                if(succeeded){
+                    NSLog(@"Member created");
+                }
+            }];
+            
+        }
+        else
+        {
+            [PFUser logInWithUsernameInBackground:user.profile.givenName password:user.profile.familyName block:^(PFUser * user, NSError *  error) {
+                if (error != nil) {
+                    NSLog(@"%@",error.localizedDescription);
+                } else {
+                    NSLog(@"User logged in successfully");
+                   
+                }
+            }];
+        }
+    }];
+//  NSString *userId = user.userID;                  // For client-side use only!
+//  NSString *idToken = user.authentication.idToken; // Safe to send to the server
+//  NSString *fullName = user.profile.name;
+//  NSString *givenName = user.profile.givenName;
+//  NSString *familyName = user.profile.familyName;
+//  NSString *email = user.profile.email;
+  // ...
+}
+- (void)signIn:(GIDSignIn *)signIn
+didDisconnectWithUser:(GIDGoogleUser *)user
+     withError:(NSError *)error {
+  // Perform any operations when the user disconnects from app here.
+  // ...
+}
+- (BOOL)application:(UIApplication *)app
+            openURL:(NSURL *)url
+            options:(NSDictionary<NSString *, id> *)options {
+  return [[GIDSignIn sharedInstance] handleURL:url];
+}
+
 
 
 #pragma mark - UISceneSession lifecycle
