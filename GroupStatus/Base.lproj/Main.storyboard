@@ -10,7 +10,7 @@
         <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="LoginViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginViewController" id="BYZ-38-t0r" customClass="LoginViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -54,9 +54,6 @@
                                 <rect key="frame" x="126" y="446" width="163" height="47"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <connections>
-                                    <action selector="tapOnGoogleSignUp:" destination="BYZ-38-t0r" eventType="valueChanged" id="FId-WG-9Ua"/>
-                                </connections>
                             </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -64,6 +61,7 @@
                     </view>
                     <connections>
                         <outlet property="passwordTextField" destination="BmK-2d-nCh" id="qTP-2F-PoZ"/>
+                        <outlet property="signInButton" destination="ELb-fA-3NQ" id="sSV-1c-gkf"/>
                         <outlet property="usernameTextField" destination="MUN-1N-mhf" id="ViM-A8-7SS"/>
                         <segue destination="YRg-ca-MHp" kind="presentation" identifier="loginSegue" id="dpe-77-ADY"/>
                     </connections>
@@ -75,7 +73,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="26B-FJ-XdA">
             <objects>
-                <tabBarController modalPresentationStyle="fullScreen" id="YRg-ca-MHp" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="TabBarController" modalPresentationStyle="fullScreen" id="YRg-ca-MHp" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Cg3-Dj-P5P">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -94,7 +92,7 @@
         <!--Groups-->
         <scene sceneID="mNx-96-cW1">
             <objects>
-                <viewController id="RKS-W1-Wu1" customClass="GroupsViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="GroupsViewController" id="RKS-W1-Wu1" customClass="GroupsViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ECB-nu-BPv">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -714,6 +712,11 @@
                         <viewLayoutGuide key="safeArea" id="uTR-Lb-fuS"/>
                     </view>
                     <navigationItem key="navigationItem" title="Profile" id="ZMV-nl-eYu">
+                        <barButtonItem key="leftBarButtonItem" title="Log Out" id="y7P-1H-rRc">
+                            <connections>
+                                <action selector="tapOnLogOut:" destination="nho-Ot-O6u" id="C7C-xt-an3"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Edit" id="SDd-sF-rjj">
                             <connections>
                                 <segue destination="Qje-PS-NgW" kind="presentation" id="2g9-Gp-xYh"/>

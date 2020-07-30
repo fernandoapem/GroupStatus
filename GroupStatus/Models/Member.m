@@ -18,8 +18,9 @@
 @dynamic profilePicture;
 @dynamic status;
 @dynamic currentTimelineId;
+@dynamic isGoogleUser;
 
--(instancetype)initWithStatus:(NSString *)status username:(NSString *)username password:(NSString *)password
+-(instancetype)initWithStatus:(NSString *)status username:(NSString *)username password:(NSString *)password googleUser:(BOOL) isGoogleUser
 {
     if(self = [super init])
     {
@@ -30,6 +31,7 @@
         self.groups = [NSMutableArray new];
         self.profilePicture = nil;
         self.currentTimelineId = @"";
+        self.isGoogleUser = isGoogleUser;
     }
     return self;
 }

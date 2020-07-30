@@ -15,10 +15,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,strong,readwrite) NSNumber *groupNumber;
 @property (nonatomic,strong,nullable,readwrite) PFFileObject *profilePicture;
 @property (nonatomic,copy,readwrite) NSString *status;
+@property (nonatomic) BOOL isGoogleUser;
 @property (nonatomic,copy,readwrite) NSString *currentTimelineId;
 - (void)addNewGroup:(Group *)group;
 -(NSMutableArray<Group*> *)groupsJoined;
--(instancetype) initWithStatus:(NSString *)status username:(NSString *)username password:(NSString *)password;
+-(instancetype) initWithStatus:(NSString *)status username:(NSString *)username password:(NSString *)password googleUser:(BOOL) isGoogleUser;
 +(void)saveMemberOnServer:(Member*) member completion:(PFBooleanResultBlock)completion;
 
 @end

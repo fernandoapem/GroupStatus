@@ -9,6 +9,9 @@
 #import "ProfileViewController.h"
 #import "Member.h"
 #import <Parse/Parse.h>
+#import <GoogleSignIn/GoogleSignIn.h>
+#import "LoginViewController.h"
+#import "SceneDelegate.h"
 @import Parse;
 @interface ProfileViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *usernameLabel;
@@ -22,11 +25,39 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+  
     Member *currentMember = [Member currentUser];
     self.usernameLabel.text = [currentMember username];
     self.statusLabel.text = [currentMember status];
     self.groupCountLabel.text =[NSString stringWithFormat:@"%@", [currentMember groupNumber]];
+}
+- (IBAction)tapOnLogOut:(id)sender {
+    Member *currentMember = [Member currentUser];
+    
+    
+    if(currentMember.isGoogleUser)
+    {
+         [[GIDSignIn sharedInstance] signOut];
+        SceneDelegate *sceneDelegate = (SceneDelegate *) self.view.window.windowScene.delegate;
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        LoginViewController *loginViewController = [storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
+        sceneDelegate.window.rootViewController = loginViewController;
+        [PFUser logOutInBackgroundWithBlock:^(NSError * _Nullable error) {
+
+        }];
+
+    }
+    else
+    {
+        SceneDelegate *sceneDelegate = (SceneDelegate *) self.view.window.windowScene.delegate;
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        LoginViewController *loginViewController = [storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
+        sceneDelegate.window.rootViewController = loginViewController;
+
+        [PFUser logOutInBackgroundWithBlock:^(NSError * _Nullable error) {
+
+        }];
+    }
 }
 
 

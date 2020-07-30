@@ -17,7 +17,7 @@
 @interface LoginViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *usernameTextField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
-@property (readonly, nonatomic) GIDGoogleUser *currentUser;
+
 
 @end
 
@@ -39,18 +39,16 @@
 -(void)viewDidAppear:(BOOL)animated
 {
     Member *currentMember = [Member currentUser];
-    if(currentMember)
+    if(!currentMember.isGoogleUser && currentMember)
     {
         
         [self performSegueWithIdentifier:@"loginSegue" sender:nil];
+        
     }
-}
-- (IBAction)tapOnGoogleSignUp:(id)sender {
-
 }
 
 - (IBAction)tapOnSignUp:(id)sender {
-    Member *member = [[Member alloc] initWithStatus:@"Starter" username:self.usernameTextField.text password:self.passwordTextField.text];
+    Member *member = [[Member alloc] initWithStatus:@"Starter" username:self.usernameTextField.text password:self.passwordTextField.text googleUser:NO];
 
     
     [member signUpInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {

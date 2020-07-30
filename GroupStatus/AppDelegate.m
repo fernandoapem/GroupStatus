@@ -10,6 +10,10 @@
 #import <Parse/Parse.h>
 #import "Member.h"
 #import "LoginViewController.h"
+#import <GoogleSignIn/GoogleSignIn.h>
+#import "SceneDelegate.h"
+#import "GroupsViewController.h"
+
 
 @interface AppDelegate ()
 
@@ -48,8 +52,10 @@ didSignInForUser:(GIDGoogleUser *)user
     }
     return;
   }
-//  // Perform any operations on signed in user here.
-    Member *member = [[Member alloc] initWithStatus:@"Starter" username:user.profile.givenName password:user.profile.familyName];
+  else{
+
+    Member *member = [[Member alloc] initWithStatus:@"Starter" username:user.profile.givenName password:user.profile.familyName googleUser:YES];
+
     [member signUpInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
         if(succeeded)
         {
@@ -57,9 +63,10 @@ didSignInForUser:(GIDGoogleUser *)user
             [Member saveMemberOnServer:member completion:^(BOOL succeeded, NSError * _Nullable error) {
                 if(succeeded){
                     NSLog(@"Member created");
+
+                    
                 }
             }];
-            
         }
         else
         {
@@ -68,24 +75,20 @@ didSignInForUser:(GIDGoogleUser *)user
                     NSLog(@"%@",error.localizedDescription);
                 } else {
                     NSLog(@"User logged in successfully");
-                   
+                    
                 }
             }];
         }
     }];
-//  NSString *userId = user.userID;                  // For client-side use only!
-//  NSString *idToken = user.authentication.idToken; // Safe to send to the server
-//  NSString *fullName = user.profile.name;
-//  NSString *givenName = user.profile.givenName;
-//  NSString *familyName = user.profile.familyName;
-//  NSString *email = user.profile.email;
-  // ...
+  }
+
 }
 - (void)signIn:(GIDSignIn *)signIn
 didDisconnectWithUser:(GIDGoogleUser *)user
      withError:(NSError *)error {
   // Perform any operations when the user disconnects from app here.
   // ...
+
 }
 - (BOOL)application:(UIApplication *)app
             openURL:(NSURL *)url
