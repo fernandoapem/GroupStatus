@@ -31,10 +31,24 @@
     // Automatically sign in the user.
     [[GIDSignIn sharedInstance] restorePreviousSignIn];
     
+   
+    GIDSignIn *signIn = [GIDSignIn sharedInstance];
+    if([signIn currentUser])
+    {
+        
+        [self performSegueWithIdentifier:@"loginSegue" sender:nil];
+        
+    }
+
     
-    
-    
-    
+}
+//temporal fix until segue issue with Google Sign in is resolved
+- (IBAction)tapOnGoogleSign:(id)sender {
+    Member *member = [Member currentUser];
+    if(member && member.isGoogleUser)
+    {
+         [self performSegueWithIdentifier:@"loginSegue" sender:nil];
+    }
 }
 -(void)viewDidAppear:(BOOL)animated
 {

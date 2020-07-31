@@ -111,7 +111,4 @@
     return self.groups.count;
 }
 
-
-
-
 @end

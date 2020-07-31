@@ -13,6 +13,7 @@
 #import "TimelineCell.h"
 #import "CreateEventViewController.h"
 #import "EventDetailViewController.h"
+#import "EditEventViewController.h"
 #import "Member.h"
 #import "Event.h"
 
@@ -20,6 +21,7 @@
 @property (weak, nonatomic) IBOutlet UINavigationItem *titleBar;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic,copy) NSArray *events;
+@property (nonatomic,strong) TimelineCell *currentCell;
 
 
 @end
@@ -146,7 +148,14 @@
         viewController.event = event;
         
     }
-    
+    if([sender isKindOfClass:[UILongPressGestureRecognizer class]])
+    {
+        UITableViewCell *tappedCell = sender;
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:tappedCell];
+        Event *event = self.timeline.events[indexPath.row];
+        EditEventViewController *viewController = [segue destinationViewController];
+        viewController.event = event;
+    }
 }
 
 
@@ -164,8 +173,27 @@
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     TimelineCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TimelineCell"];
     cell.event = self.timeline.events[indexPath.row];
+    UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc]
+                                                 initWithTarget:self
+                                               action:@selector(handleLongPress:)];
+    longPress.minimumPressDuration = 1.0;
+    [cell addGestureRecognizer:longPress];
     
     return cell;
+}
+
+-  (void)handleLongPress:(UILongPressGestureRecognizer*)sender{
+  if (sender.state == UIGestureRecognizerStateEnded) {
+    NSLog(@"UIGestureRecognizerStateEnded");
+
+   }
+  else if (sender.state == UIGestureRecognizerStateBegan){
+     NSLog(@"UIGestureRecognizerStateBegan.");
+
+      [self performSegueWithIdentifier:@"editSegue" sender:sender];
+      
+      
+   }
 }
 
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {

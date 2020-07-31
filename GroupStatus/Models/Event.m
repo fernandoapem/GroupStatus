@@ -44,9 +44,25 @@
     }
      return self;
 }
--(void)updateEvent:(Event *)event eventName:(NSString *)name description:(NSString *)description time:(NSDate *)time TimelineId:(NSString *)timeline{
-    
++(void) updateEvent:(Event *)event eventName:(NSString *)name
+{
+    event.eventName = name;
 }
++(void) updateEvent:(Event *)event eventDescription:(NSString *)description
+{
+   event.eventDescription = description;
+}
++(void) updateEvent:(Event *)event  time:(NSDate *)time
+{
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:@"hh:mm a"];
+    event.timeString = [dateFormat stringFromDate:time];
+}
++(void) updateEvent:(Event *)event link:(NSString *)link
+{
+    event.link = link;
+}
+
 
 + (void)saveEventOnServer:(Event *)event withCompletion:(PFBooleanResultBlock)completion
 {

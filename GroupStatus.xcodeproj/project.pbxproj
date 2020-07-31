@@ -37,6 +37,7 @@
 		EDC4342224C88F690001DD06 /* SelectGroupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDC4342124C88F690001DD06 /* SelectGroupViewController.m */; };
 		EDC4342524CA13B10001DD06 /* TimelineCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EDC4342424CA13B10001DD06 /* TimelineCell.m */; };
 		EDC4342824CA37640001DD06 /* CreateEventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDC4342724CA37640001DD06 /* CreateEventViewController.m */; };
+		EDE2427C24D47A5700D7C9FD /* EditEventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDE2427B24D47A5700D7C9FD /* EditEventViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -119,6 +120,8 @@
 		EDC4342424CA13B10001DD06 /* TimelineCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TimelineCell.m; sourceTree = "<group>"; };
 		EDC4342624CA37640001DD06 /* CreateEventViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CreateEventViewController.h; path = GroupStatus/CreateEventViewController.h; sourceTree = SOURCE_ROOT; };
 		EDC4342724CA37640001DD06 /* CreateEventViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = CreateEventViewController.m; path = GroupStatus/CreateEventViewController.m; sourceTree = SOURCE_ROOT; };
+		EDE2427A24D47A5700D7C9FD /* EditEventViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EditEventViewController.h; sourceTree = "<group>"; };
+		EDE2427B24D47A5700D7C9FD /* EditEventViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EditEventViewController.m; sourceTree = "<group>"; };
 		F28444D7B0C794DC539CA097 /* Pods-GroupStatus-GroupStatusUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GroupStatus-GroupStatusUITests.release.xcconfig"; path = "Target Support Files/Pods-GroupStatus-GroupStatusUITests/Pods-GroupStatus-GroupStatusUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -196,6 +199,8 @@
 				ED460D3224BF56A0008FE71A /* GroupsViewController.m */,
 				ED06F93124BE4A8E00DF2FCD /* LoginViewController.h */,
 				ED06F93224BE4A8E00DF2FCD /* LoginViewController.m */,
+				EDE2427A24D47A5700D7C9FD /* EditEventViewController.h */,
+				EDE2427B24D47A5700D7C9FD /* EditEventViewController.m */,
 				ED2D69EA24C100CC006347E2 /* CreateGroupViewController.h */,
 				ED2D69EB24C100CC006347E2 /* CreateGroupViewController.m */,
 			);
@@ -566,6 +571,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ED06F92A24BE418400DF2FCD /* Event.m in Sources */,
+				EDE2427C24D47A5700D7C9FD /* EditEventViewController.m in Sources */,
 				ED14013F24BCB57E00138A18 /* ViewController.m in Sources */,
 				EDC4342224C88F690001DD06 /* SelectGroupViewController.m in Sources */,
 				ED14013924BCB57E00138A18 /* AppDelegate.m in Sources */,

@@ -7,10 +7,11 @@
 //
 
 #import "ViewController.h"
-
+#import "Event.h"
 NS_ASSUME_NONNULL_BEGIN
 
 @interface EditProfileViewController : ViewController
+
 
 @end
 
