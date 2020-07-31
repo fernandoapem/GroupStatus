@@ -224,8 +224,9 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jF7-Yq-uGN" customClass="PFImageView">
-                                                    <rect key="frame" x="256" y="12" width="107" height="88"/>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="jF7-Yq-uGN" customClass="PFImageView">
+                                                    <rect key="frame" x="256" y="12.5" width="107" height="87"/>
+                                                    <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="107" id="67w-44-8ax"/>
                                                         <constraint firstAttribute="height" constant="88" id="Ue7-F5-idX"/>
@@ -238,12 +239,12 @@
                                                 <constraint firstItem="FvK-9c-vur" firstAttribute="top" secondItem="Jcl-8C-Be3" secondAttribute="bottom" constant="8" id="Px2-Vs-5KW"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="FvK-9c-vur" secondAttribute="bottom" constant="31" id="aKk-VG-XQz"/>
                                                 <constraint firstItem="jF7-Yq-uGN" firstAttribute="leading" secondItem="Jcl-8C-Be3" secondAttribute="trailing" constant="145" id="f9j-9D-DlP"/>
-                                                <constraint firstItem="jF7-Yq-uGN" firstAttribute="leading" secondItem="FvK-9c-vur" secondAttribute="trailing" constant="177" id="fL3-W7-rb1"/>
+                                                <constraint firstItem="jF7-Yq-uGN" firstAttribute="leading" relation="lessThanOrEqual" secondItem="FvK-9c-vur" secondAttribute="trailing" constant="177" id="fL3-W7-rb1"/>
                                                 <constraint firstItem="jF7-Yq-uGN" firstAttribute="top" secondItem="0NF-s6-MwM" secondAttribute="topMargin" constant="1" id="iPB-NF-93I"/>
                                                 <constraint firstItem="Jcl-8C-Be3" firstAttribute="top" secondItem="0NF-s6-MwM" secondAttribute="topMargin" constant="9" id="mXu-mo-tQf"/>
                                                 <constraint firstItem="FvK-9c-vur" firstAttribute="top" secondItem="Jcl-8C-Be3" secondAttribute="bottom" constant="8" id="nyp-sr-XZM"/>
                                                 <constraint firstItem="Jcl-8C-Be3" firstAttribute="leading" secondItem="0NF-s6-MwM" secondAttribute="leadingMargin" constant="9" id="osi-KX-P0o"/>
-                                                <constraint firstItem="jF7-Yq-uGN" firstAttribute="leading" secondItem="Jcl-8C-Be3" secondAttribute="trailing" constant="145" id="wmV-yL-Beh"/>
+                                                <constraint firstItem="jF7-Yq-uGN" firstAttribute="leading" relation="lessThanOrEqual" secondItem="Jcl-8C-Be3" secondAttribute="trailing" constant="145" id="wmV-yL-Beh"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="jF7-Yq-uGN" secondAttribute="trailing" constant="31" id="x3D-y7-PMH"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -256,7 +257,7 @@
                                 </prototypes>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Group Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HLz-AI-g6e">
-                                <rect key="frame" x="32" y="115" width="97" height="21"/>
+                                <rect key="frame" x="32" y="115" width="186" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -283,9 +284,10 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="khT-NO-7oM" customClass="PFImageView">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="person.3.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="khT-NO-7oM" customClass="PFImageView">
                                 <rect key="frame" x="251" y="100" width="95" height="80"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Members:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WlK-tE-r89">
                                 <rect key="frame" x="32" y="222" width="77" height="21"/>
@@ -1099,6 +1101,7 @@
         <image name="calendar" catalog="system" width="128" height="106"/>
         <image name="calendar.circle.fill" catalog="system" width="128" height="121"/>
         <image name="person.3.fill" catalog="system" width="128" height="61"/>
+        <image name="person.circle.fill" catalog="system" width="128" height="121"/>
         <image name="person.crop.circle.fill" catalog="system" width="128" height="121"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
         <image name="plus" catalog="system" width="128" height="113"/>

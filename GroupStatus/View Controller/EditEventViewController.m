@@ -27,7 +27,8 @@
 }
 - (IBAction)onCancelTap:(id)sender {
     
-    [self dismissViewControllerAnimated:YES completion:nil];
+    UINavigationController *navigationController = self.navigationController;
+    [navigationController popViewControllerAnimated:YES];
     
 }
 - (IBAction)onEditTap:(id)sender {
@@ -39,7 +40,8 @@
             NSLog(@"Event Updated");
         }
     }];
-    [self dismissViewControllerAnimated:YES completion:nil];
+    UINavigationController *navigationController = self.navigationController;
+    [navigationController popViewControllerAnimated:YES];
 }
 -(void) setInputValues
 {
