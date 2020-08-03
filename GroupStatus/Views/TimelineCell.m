@@ -19,5 +19,7 @@
     self.timeLabel.text = [event timeString];
     self.actionLabel.text = [event eventName];
     
+    
+    
 }
 @end

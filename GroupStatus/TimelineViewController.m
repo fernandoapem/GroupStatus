@@ -16,6 +16,7 @@
 #import "EditEventViewController.h"
 #import "Member.h"
 #import "Event.h"
+#import "ArraySorter.h"
 
 @interface TimelineViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UINavigationItem *titleBar;
@@ -39,19 +40,20 @@
     [self.tableView insertSubview:refreshControl atIndex:0];
     
     [self loadTimeline];
-
+    
     self.titleBar.title = [NSString stringWithFormat:@"%@'s Timeline",self.group.groupName];
-
+    
     
 }
 -(void) fetchEvents
 {
+    ArraySorter *sorter = [[ArraySorter alloc] init];
     PFQuery *query = [Event query];
     [query whereKey:@"objectId" containedIn:self.timeline.events];
     [query findObjectsInBackgroundWithBlock:^(NSArray<Event *>* _Nullable events, NSError * _Nullable error) {
         if(events)
         {
-            self.timeline.events = [events mutableCopy];
+            self.timeline.events = [[sorter timeMergeSort:events] mutableCopy];//[events mutableCopy];
             [self.tableView reloadData];
         }
         else
@@ -82,17 +84,17 @@
     Timeline *newTimeline = [[Timeline alloc] initWithGroupID:[self.group objectId]];
     self.timeline = newTimeline;
     
-   
+    
     if(!self.group.timelineCreated){
         [Timeline saveTimelineOnServer:self.timeline withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
-        if(succeeded){
-            NSLog(@"Timeline created");
-            [self updateTimeline];
-            self.group.timelineCreated = YES;
-            [self.group saveInBackground];
-            [self fetchEvents];
-        }
-    }];
+            if(succeeded){
+                NSLog(@"Timeline created");
+                [self updateTimeline];
+                self.group.timelineCreated = YES;
+                [self.group saveInBackground];
+                [self fetchEvents];
+            }
+        }];
         
     }
     else
@@ -103,30 +105,30 @@
             self.timeline = timelineArray[0];
             [self updateTimeline];
             [self fetchEvents];
-
+            
         }];
-
+        
     }
 }
 - (IBAction)tapOnAdd:(id)sender {
-   UIAlertController* alert = [UIAlertController alertControllerWithTitle:nil
-                                   message:nil
-                                   preferredStyle:UIAlertControllerStyleActionSheet];
-     
+    UIAlertController* alert = [UIAlertController alertControllerWithTitle:nil
+                                                                   message:nil
+                                                            preferredStyle:UIAlertControllerStyleActionSheet];
+    
     UIAlertAction* addAction = [UIAlertAction actionWithTitle:@"Create Event" style:UIAlertActionStyleDefault
-       handler:^(UIAlertAction * action) {
+                                                      handler:^(UIAlertAction * action) {
         
-       
+        
         [self performSegueWithIdentifier:@"eventSegue" sender:nil];
         
     }];
     
     UIAlertAction* joinAction = [UIAlertAction actionWithTitle:@"Create Activity" style:UIAlertActionStyleDefault
-       handler:^(UIAlertAction * action) {
+                                                       handler:^(UIAlertAction * action) {
         [self performSegueWithIdentifier:@"activitySegue" sender:nil];
         
     }];
-     
+    
     [alert addAction:addAction];
     [alert addAction:joinAction];
     [self presentViewController:alert animated:YES completion:nil];
@@ -148,33 +150,25 @@
         viewController.event = event;
         
     }
-    if([sender isKindOfClass:[UILongPressGestureRecognizer class]])
-    {
-        UITableViewCell *tappedCell = sender;
-        NSIndexPath *indexPath = [self.tableView indexPathForCell:tappedCell];
-        Event *event = self.timeline.events[indexPath.row];
-        EditEventViewController *viewController = [segue destinationViewController];
-        viewController.event = event;
-    }
 }
 
 
 
 - (void)beginRefresh:(UIRefreshControl *)refreshControl {
-
-           // ... Use the new data to update the data source ...
-            [self loadTimeline];
-           // Reload the tableView now that there is new data
-            [self.tableView reloadData];
-           // Tell the refreshControl to stop spinning
-            [refreshControl endRefreshing];
+    
+    // ... Use the new data to update the data source ...
+    [self loadTimeline];
+    // Reload the tableView now that there is new data
+    [self.tableView reloadData];
+    // Tell the refreshControl to stop spinning
+    [refreshControl endRefreshing];
     
 }
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     TimelineCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TimelineCell"];
     cell.event = self.timeline.events[indexPath.row];
     UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc]
-                                                 initWithTarget:self
+                                               initWithTarget:self
                                                action:@selector(handleLongPress:)];
     longPress.minimumPressDuration = 1.0;
     [cell addGestureRecognizer:longPress];
@@ -183,17 +177,17 @@
 }
 
 -  (void)handleLongPress:(UILongPressGestureRecognizer*)sender{
-  if (sender.state == UIGestureRecognizerStateEnded) {
-    NSLog(@"UIGestureRecognizerStateEnded");
-
-   }
-  else if (sender.state == UIGestureRecognizerStateBegan){
-     NSLog(@"UIGestureRecognizerStateBegan.");
-
-      [self performSegueWithIdentifier:@"editSegue" sender:sender];
-      
-      
-   }
+    if (sender.state == UIGestureRecognizerStateEnded) {
+        NSLog(@"UIGestureRecognizerStateEnded");
+        
+    }
+    else if (sender.state == UIGestureRecognizerStateBegan){
+        NSLog(@"UIGestureRecognizerStateBegan.");
+        UITableViewCell *cell = (UITableViewCell*)sender.view;
+        [self performSegueWithIdentifier:@"editSegue" sender:cell];
+        
+        
+    }
 }
 
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {

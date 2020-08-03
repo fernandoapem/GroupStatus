@@ -13,6 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface Event : PFObject <PFSubclassing>
 @property (nonatomic,copy,readonly) NSString *timelineId;
 @property (nonatomic,strong,readonly) NSString *timeString;
+@property (nonatomic,strong,readwrite) NSDate *time;
 @property (nonatomic,copy,readonly) NSString *eventName;
 @property (nonatomic,copy,readonly) NSString *eventDescription;
 @property (nonatomic,strong,readwrite) NSNumber *membersAttending;

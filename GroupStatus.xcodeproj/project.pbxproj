@@ -38,6 +38,7 @@
 		EDC4342524CA13B10001DD06 /* TimelineCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EDC4342424CA13B10001DD06 /* TimelineCell.m */; };
 		EDC4342824CA37640001DD06 /* CreateEventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDC4342724CA37640001DD06 /* CreateEventViewController.m */; };
 		EDE2427C24D47A5700D7C9FD /* EditEventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDE2427B24D47A5700D7C9FD /* EditEventViewController.m */; };
+		EDE2427F24D7B05700D7C9FD /* ArraySorter.m in Sources */ = {isa = PBXBuildFile; fileRef = EDE2427E24D7B05700D7C9FD /* ArraySorter.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -122,6 +123,8 @@
 		EDC4342724CA37640001DD06 /* CreateEventViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = CreateEventViewController.m; path = GroupStatus/CreateEventViewController.m; sourceTree = SOURCE_ROOT; };
 		EDE2427A24D47A5700D7C9FD /* EditEventViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EditEventViewController.h; sourceTree = "<group>"; };
 		EDE2427B24D47A5700D7C9FD /* EditEventViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EditEventViewController.m; sourceTree = "<group>"; };
+		EDE2427D24D7B05700D7C9FD /* ArraySorter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ArraySorter.h; path = Assets.xcassets/ArraySorter.h; sourceTree = "<group>"; };
+		EDE2427E24D7B05700D7C9FD /* ArraySorter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = ArraySorter.m; path = Assets.xcassets/ArraySorter.m; sourceTree = "<group>"; };
 		F28444D7B0C794DC539CA097 /* Pods-GroupStatus-GroupStatusUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GroupStatus-GroupStatusUITests.release.xcconfig"; path = "Target Support Files/Pods-GroupStatus-GroupStatusUITests/Pods-GroupStatus-GroupStatusUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -274,6 +277,8 @@
 				ED14014524BCB57F00138A18 /* LaunchScreen.storyboard */,
 				ED14014824BCB57F00138A18 /* Info.plist */,
 				ED14014924BCB57F00138A18 /* main.m */,
+				EDE2427D24D7B05700D7C9FD /* ArraySorter.h */,
+				EDE2427E24D7B05700D7C9FD /* ArraySorter.m */,
 			);
 			path = GroupStatus;
 			sourceTree = "<group>";
@@ -584,6 +589,7 @@
 				ED06F92724BE0A2D00DF2FCD /* Group.m in Sources */,
 				ED2D69EC24C100CC006347E2 /* CreateGroupViewController.m in Sources */,
 				ED2D69EF24C20EC3006347E2 /* JoinGroupViewController.m in Sources */,
+				EDE2427F24D7B05700D7C9FD /* ArraySorter.m in Sources */,
 				ED14014A24BCB57F00138A18 /* main.m in Sources */,
 				ED14013C24BCB57E00138A18 /* SceneDelegate.m in Sources */,
 				EDC4342824CA37640001DD06 /* CreateEventViewController.m in Sources */,

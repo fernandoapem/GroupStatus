@@ -18,6 +18,7 @@
 @implementation Event
 @dynamic timelineId;
 @dynamic timeString;
+@dynamic time;
 @dynamic eventName;
 @dynamic eventDescription;
 @dynamic membersAttending;
@@ -38,6 +39,9 @@
         NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
         [dateFormat setDateFormat:@"hh:mm a"];
         self.timeString = [dateFormat stringFromDate:time];
+       
+        self.time = time;
+        
         self.timelineId = timeline;
         self.isFree = NO;
         self.link = link;
@@ -57,6 +61,7 @@
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
     [dateFormat setDateFormat:@"hh:mm a"];
     event.timeString = [dateFormat stringFromDate:time];
+    event.time = time;
 }
 +(void) updateEvent:(Event *)event link:(NSString *)link
 {
