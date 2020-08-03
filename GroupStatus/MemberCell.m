@@ -7,15 +7,24 @@
 //
 
 #import "MemberCell.h"
-
+#import "Member.h"
 @implementation MemberCell
 
 -(void)setMember:(Member *)member
 {
-    _member = member;
     self.usernameLabel.text = [member username];
     self.statusLabel.text = [member status];
-    self.memberImage = nil;
+    
+    self.memberImage.layer.cornerRadius = self.memberImage.frame.size.height /2;
+    self.memberImage.layer.masksToBounds = YES;
+    self.memberImage.layer.borderWidth = 0;
+    PFFileObject *userImageFile = [member profilePicture];
+    [userImageFile getDataInBackgroundWithBlock:^(NSData *imageData, NSError *error) {
+        if (!error) {
+            self.memberImage.image = [UIImage imageWithData:imageData];
+        }
+    }];
+    
 }
 
 @end

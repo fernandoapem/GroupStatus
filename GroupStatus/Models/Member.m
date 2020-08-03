@@ -8,7 +8,9 @@
 
 #import "Member.h"
 #import "Group.h"
+@import Parse;
 @interface Member()
+
 @property (nonatomic,strong,readwrite) NSMutableArray<Group *>  *groups;
 @end
 
@@ -48,8 +50,24 @@
     return self.groups;
 }
 
-+(void)updateProfilePic
-{
++(void)updateProfilePic:(UIImage * _Nullable)image forMember:(Member *)member completion:(PFBooleanResultBlock  _Nullable)completion {
+
+    member.profilePicture  = [self getPFFileFromImage:image];
+    [member saveInBackgroundWithBlock:completion];
+}
++ (PFFileObject *)getPFFileFromImage: (UIImage * _Nullable)image {
+ 
+    // check if image is not nil
+    if (!image) {
+        return nil;
+    }
     
+    NSData *imageData = UIImagePNGRepresentation(image);
+    // get image data and check if that is not nil
+    if (!imageData) {
+        return nil;
+    }
+    
+    return [PFFileObject fileObjectWithName:@"image.png" data:imageData];
 }
 @end

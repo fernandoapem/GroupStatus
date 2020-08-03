@@ -8,10 +8,11 @@
 
 #import "ViewController.h"
 #import "Event.h"
+#import "Member.h"
 NS_ASSUME_NONNULL_BEGIN
 
 @interface EditProfileViewController : ViewController
-
+@property (nonatomic,strong) Member *member;
 
 @end
 

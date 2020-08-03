@@ -29,6 +29,16 @@
     Member *currentMember = [Member currentUser];
     self.usernameLabel.text = [currentMember username];
     self.statusLabel.text = [currentMember status];
+    
+    self.profilePicture.layer.cornerRadius = self.profilePicture.frame.size.height /2;
+    self.profilePicture.layer.masksToBounds = YES;
+    self.profilePicture.layer.borderWidth = 0;
+    PFFileObject *userImageFile = [currentMember profilePicture];
+    [userImageFile getDataInBackgroundWithBlock:^(NSData *imageData, NSError *error) {
+        if (!error) {
+            self.profilePicture.image = [UIImage imageWithData:imageData];
+        }
+    }];
     self.groupCountLabel.text =[NSString stringWithFormat:@"%@", [currentMember groupNumber]];
 }
 - (IBAction)tapOnLogOut:(id)sender {

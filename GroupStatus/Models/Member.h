@@ -21,7 +21,8 @@ NS_ASSUME_NONNULL_BEGIN
 -(NSMutableArray<Group*> *)groupsJoined;
 -(instancetype) initWithStatus:(NSString *)status username:(NSString *)username password:(NSString *)password googleUser:(BOOL) isGoogleUser;
 +(void)saveMemberOnServer:(Member*) member completion:(PFBooleanResultBlock)completion;
-
++ (PFFileObject *)getPFFileFromImage: (UIImage * _Nullable)image;
++(void)updateProfilePic:(UIImage * _Nullable)image forMember:(Member *)member completion:(PFBooleanResultBlock  _Nullable)completion;
 @end
 
 NS_ASSUME_NONNULL_END
