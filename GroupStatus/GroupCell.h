@@ -12,6 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 @import Parse;
 @interface GroupCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *descriptionLabel;
+@property (weak, nonatomic) IBOutlet UIView *cellContainerView;
 
 @property (weak, nonatomic) IBOutlet UILabel *memberCountLabel;
 @property (nonatomic,strong) Group *group;

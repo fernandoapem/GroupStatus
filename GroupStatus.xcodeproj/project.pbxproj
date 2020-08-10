@@ -39,6 +39,7 @@
 		EDC4342824CA37640001DD06 /* CreateEventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDC4342724CA37640001DD06 /* CreateEventViewController.m */; };
 		EDE2427C24D47A5700D7C9FD /* EditEventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDE2427B24D47A5700D7C9FD /* EditEventViewController.m */; };
 		EDE2427F24D7B05700D7C9FD /* ArraySorter.m in Sources */ = {isa = PBXBuildFile; fileRef = EDE2427E24D7B05700D7C9FD /* ArraySorter.m */; };
+		EDEE0E1324DDBECD00B5ECFF /* NavigationBarSetter.m in Sources */ = {isa = PBXBuildFile; fileRef = EDEE0E1224DDBECD00B5ECFF /* NavigationBarSetter.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -125,6 +126,8 @@
 		EDE2427B24D47A5700D7C9FD /* EditEventViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EditEventViewController.m; sourceTree = "<group>"; };
 		EDE2427D24D7B05700D7C9FD /* ArraySorter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ArraySorter.h; path = Assets.xcassets/ArraySorter.h; sourceTree = "<group>"; };
 		EDE2427E24D7B05700D7C9FD /* ArraySorter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = ArraySorter.m; path = Assets.xcassets/ArraySorter.m; sourceTree = "<group>"; };
+		EDEE0E1124DDBECD00B5ECFF /* NavigationBarSetter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NavigationBarSetter.h; sourceTree = "<group>"; };
+		EDEE0E1224DDBECD00B5ECFF /* NavigationBarSetter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NavigationBarSetter.m; sourceTree = "<group>"; };
 		F28444D7B0C794DC539CA097 /* Pods-GroupStatus-GroupStatusUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GroupStatus-GroupStatusUITests.release.xcconfig"; path = "Target Support Files/Pods-GroupStatus-GroupStatusUITests/Pods-GroupStatus-GroupStatusUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -273,6 +276,8 @@
 				ED14013D24BCB57E00138A18 /* ViewController.h */,
 				ED14013E24BCB57E00138A18 /* ViewController.m */,
 				ED460D2E24BF55A7008FE71A /* Main.storyboard */,
+				EDEE0E1124DDBECD00B5ECFF /* NavigationBarSetter.h */,
+				EDEE0E1224DDBECD00B5ECFF /* NavigationBarSetter.m */,
 				ED14014324BCB57F00138A18 /* Assets.xcassets */,
 				ED14014524BCB57F00138A18 /* LaunchScreen.storyboard */,
 				ED14014824BCB57F00138A18 /* Info.plist */,
@@ -595,6 +600,7 @@
 				EDC4342824CA37640001DD06 /* CreateEventViewController.m in Sources */,
 				ED460D3C24C0DAA3008FE71A /* GroupCell.m in Sources */,
 				ED5565AA24D0D8A1000D1013 /* MemberCell.m in Sources */,
+				EDEE0E1324DDBECD00B5ECFF /* NavigationBarSetter.m in Sources */,
 				ED460D3924BF58F8008FE71A /* ProfileViewController.m in Sources */,
 				ED5565A724D0D286000D1013 /* GroupDetailViewController.m in Sources */,
 				ED460D3624BF5714008FE71A /* TimelineViewController.m in Sources */,

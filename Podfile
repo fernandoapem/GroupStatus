@@ -9,6 +9,7 @@ target 'GroupStatus' do
   pod 'Parse'
   pod 'Parse/UI'
   pod 'GoogleSignIn'
+ 
 
   target 'GroupStatusTests' do
     inherit! :search_paths

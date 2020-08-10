@@ -7,14 +7,16 @@
 //
 
 #import "EditEventViewController.h"
+#import "NavigationBarSetter.h"
 #import "Event.h"
 
 @interface EditEventViewController ()
-@property (weak, nonatomic) IBOutlet UILabel *eventNameLabel;
+
 @property (weak, nonatomic) IBOutlet UITextField *eventNameTextField;
 @property (weak, nonatomic) IBOutlet UITextView *eventDescriptionTextView;
 @property (weak, nonatomic) IBOutlet UITextField *linkTextField;
 @property (weak, nonatomic) IBOutlet UIDatePicker *datePicker;
+@property (weak, nonatomic) IBOutlet UINavigationItem *titleBar;
 
 @end
 
@@ -23,7 +25,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.eventNameLabel.text = [NSString stringWithFormat:@"Edit event: %@",[self.event eventName]];
+
+    self.titleBar.title = [self.event eventName];
+    [NavigationBarSetter customizeNavigatioBar:self];
+  //  self.eventDescriptionTextView.layer.borderColor
+   // self.eventDescriptionTextView.layer.borderWidth
+   // self.eventDescriptionTextView.layer.cornerRadius
 }
 - (IBAction)onCancelTap:(id)sender {
     

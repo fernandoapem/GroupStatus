@@ -11,10 +11,12 @@
 #import "TimelineViewController.h"
 #import "Group.h"
 #import "Member.h"
+#import "NavigationBarSetter.h"
 
 @interface SelectGroupViewController ()<UITableViewDataSource,UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic,strong) NSArray *groups;
+
 
 @end
 
@@ -22,10 +24,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-   
+    
     
     self.tableView.dataSource = self;
     self.tableView.delegate =self;
+    [NavigationBarSetter customizeNavigatioBar:self];
     
     UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
     [refreshControl addTarget:self action:@selector(beginRefresh:) forControlEvents:UIControlEventValueChanged];
@@ -68,23 +71,23 @@
     TimelineViewController *timelineController = [segue destinationViewController];
     timelineController.group = group;
     
-
+    
 }
 - (void)beginRefresh:(UIRefreshControl *)refreshControl {
-
-           // ... Use the new data to update the data source ...
-            [self fetchGroups];
-           // Reload the tableView now that there is new data
-            [self.tableView reloadData];
-           // Tell the refreshControl to stop spinning
-            [refreshControl endRefreshing];
+    
+    // ... Use the new data to update the data source ...
+    [self fetchGroups];
+    // Reload the tableView now that there is new data
+    [self.tableView reloadData];
+    // Tell the refreshControl to stop spinning
+    [refreshControl endRefreshing];
     
 }
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     GroupCell *cell = [tableView dequeueReusableCellWithIdentifier:@"GroupCell"];
     cell.group = self.groups[indexPath.row];
- 
+    
     return cell;
 }
 

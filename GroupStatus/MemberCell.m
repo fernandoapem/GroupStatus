@@ -24,7 +24,21 @@
             self.memberImage.image = [UIImage imageWithData:imageData];
         }
     }];
+    [self customizeView];
+}
+- (void) customizeView
+{
+    self.cellContainerView.layer.cornerRadius = 15;
+    self.cellContainerView.layer.masksToBounds = true;
     
+    CAGradientLayer *gradient = [CAGradientLayer layer];
+    
+    gradient.frame = self.cellContainerView.bounds;
+    gradient.colors = @[(id)[UIColor greenColor].CGColor, (id)[UIColor systemGreenColor].CGColor];
+    [self.cellContainerView.layer insertSublayer:gradient atIndex:0];
+    [self.cellContainerView addSubview:self.usernameLabel];
+    [self.cellContainerView addSubview:self.statusLabel];
+    [self.cellContainerView addSubview:self.memberImage];
 }
 
 @end

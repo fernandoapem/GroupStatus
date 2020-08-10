@@ -35,9 +35,6 @@
     [GIDSignIn sharedInstance].clientID = @"185786784499-2sc4ccghhlt0o10uuvb3kj926300o18h.apps.googleusercontent.com";
     [GIDSignIn sharedInstance].delegate = self;
    
-
-       
-    
     // Override point for customization after application launch.
     return YES;
 }
@@ -63,7 +60,6 @@ didSignInForUser:(GIDGoogleUser *)user
             [Member saveMemberOnServer:member completion:^(BOOL succeeded, NSError * _Nullable error) {
                 if(succeeded){
                     NSLog(@"Member created");
-
                     
                 }
             }];
@@ -75,6 +71,7 @@ didSignInForUser:(GIDGoogleUser *)user
                     NSLog(@"%@",error.localizedDescription);
                 } else {
                     NSLog(@"User logged in successfully");
+                    [[NSNotificationCenter defaultCenter ] postNotificationName:@"Google Logged in" object:nil];
                     
                 }
             }];

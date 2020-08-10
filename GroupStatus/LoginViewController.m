@@ -33,6 +33,7 @@
     
    
     GIDSignIn *signIn = [GIDSignIn sharedInstance];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(segueIntoVC) name:@"Google Logged in" object:nil];
     if([signIn currentUser])
     {
         
@@ -42,18 +43,17 @@
 
     
 }
-//temporal fix until segue issue with Google Sign in is resolved
-- (IBAction)tapOnGoogleSign:(id)sender {
-    Member *member = [Member currentUser];
-    if(member && member.isGoogleUser)
-    {
-         [self performSegueWithIdentifier:@"loginSegue" sender:nil];
-    }
+
+- (void) segueIntoVC
+{
+    [self performSegueWithIdentifier:@"loginSegue" sender:nil];
 }
+
 -(void)viewDidAppear:(BOOL)animated
 {
+    [super viewDidAppear:animated];
     Member *currentMember = [Member currentUser];
-    if(!currentMember.isGoogleUser && currentMember)
+    if(currentMember.isGoogleUser && currentMember)
     {
         
         [self performSegueWithIdentifier:@"loginSegue" sender:nil];

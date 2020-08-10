@@ -15,6 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UILabel *statusLabel;
 @property (weak, nonatomic) IBOutlet PFImageView *memberImage;
 @property (nonatomic,strong) Member *member;
+@property (weak, nonatomic) IBOutlet UIView *cellContainerView;
 
 @end
 

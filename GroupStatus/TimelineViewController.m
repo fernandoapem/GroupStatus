@@ -17,6 +17,7 @@
 #import "Member.h"
 #import "Event.h"
 #import "ArraySorter.h"
+#import "NavigationBarSetter.h"
 
 @interface TimelineViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UINavigationItem *titleBar;
@@ -34,6 +35,8 @@
     // Do any additional setup after loading the view.
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
+    self.titleBar.title = [NSString stringWithFormat:@"%@'s Timeline",self.group.groupName];
+    [NavigationBarSetter customizeNavigatioBar:self];
     
     UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
     [refreshControl addTarget:self action:@selector(beginRefresh:) forControlEvents:UIControlEventValueChanged];
@@ -41,7 +44,7 @@
     
     [self loadTimeline];
     
-    self.titleBar.title = [NSString stringWithFormat:@"%@'s Timeline",self.group.groupName];
+    
     
     
 }
@@ -151,9 +154,6 @@
         
     }
 }
-
-
-
 - (void)beginRefresh:(UIRefreshControl *)refreshControl {
     
     // ... Use the new data to update the data source ...
