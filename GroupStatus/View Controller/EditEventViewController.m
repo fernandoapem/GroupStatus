@@ -7,7 +7,7 @@
 //
 
 #import "EditEventViewController.h"
-#import "NavigationBarSetter.h"
+#import "UIViewController+NavigationBarSetter.h"
 #import "Event.h"
 
 @interface EditEventViewController ()
@@ -27,7 +27,7 @@
     
 
     self.titleBar.title = [self.event eventName];
-    [NavigationBarSetter customizeNavigatioBar:self];
+    [self customizeNavigatioBar];
   //  self.eventDescriptionTextView.layer.borderColor
    // self.eventDescriptionTextView.layer.borderWidth
    // self.eventDescriptionTextView.layer.cornerRadius

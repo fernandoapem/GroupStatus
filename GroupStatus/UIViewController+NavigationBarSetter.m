@@ -6,13 +6,14 @@
 //  Copyright © 2020 Fernando Arturo Perez. All rights reserved.
 //
 
-#import "NavigationBarSetter.h"
+#import "UIViewController+NavigationBarSetter.h"
 #import "ViewController.h"
-@implementation NavigationBarSetter
+@implementation UIViewController(NavigationBarSetter)
 
-+(void) customizeNavigatioBar:(ViewController *)viewController
+
+-(void) customizeNavigatioBar
 {
-     UINavigationBar *navigationBar = viewController.navigationController.navigationBar;
+     UINavigationBar *navigationBar = self.navigationController.navigationBar;
     navigationBar.titleTextAttributes = @{NSFontAttributeName : [UIFont boldSystemFontOfSize:25],NSForegroundColorAttributeName :UIColor.systemGreenColor};
 }
 @end

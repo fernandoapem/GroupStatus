@@ -7,6 +7,7 @@
 //
 
 #import "GroupDetailViewController.h"
+#import "EditGroupViewController.h"
 #import "Member.h"
 #import "MemberCell.h"
 #import <Parse/Parse.h>
@@ -50,15 +51,17 @@
         }
     }];
 }
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+
+    Group *group = self.group;
+    EditGroupViewController  *viewController = [segue destinationViewController];
+    viewController.group = group;
 }
-*/
+
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     MemberCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MemberCell"];

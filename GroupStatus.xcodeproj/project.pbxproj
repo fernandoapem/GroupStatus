@@ -39,7 +39,9 @@
 		EDC4342824CA37640001DD06 /* CreateEventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDC4342724CA37640001DD06 /* CreateEventViewController.m */; };
 		EDE2427C24D47A5700D7C9FD /* EditEventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDE2427B24D47A5700D7C9FD /* EditEventViewController.m */; };
 		EDE2427F24D7B05700D7C9FD /* ArraySorter.m in Sources */ = {isa = PBXBuildFile; fileRef = EDE2427E24D7B05700D7C9FD /* ArraySorter.m */; };
-		EDEE0E1324DDBECD00B5ECFF /* NavigationBarSetter.m in Sources */ = {isa = PBXBuildFile; fileRef = EDEE0E1224DDBECD00B5ECFF /* NavigationBarSetter.m */; };
+		EDEE0E1324DDBECD00B5ECFF /* UIViewController+NavigationBarSetter.m in Sources */ = {isa = PBXBuildFile; fileRef = EDEE0E1224DDBECD00B5ECFF /* UIViewController+NavigationBarSetter.m */; };
+		EDF5503A24E312AB0011048E /* EditGroupView.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF5503924E312AB0011048E /* EditGroupView.m */; };
+		EDF5503D24E312DC0011048E /* EditGroupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF5503C24E312DC0011048E /* EditGroupViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -126,8 +128,12 @@
 		EDE2427B24D47A5700D7C9FD /* EditEventViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EditEventViewController.m; sourceTree = "<group>"; };
 		EDE2427D24D7B05700D7C9FD /* ArraySorter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ArraySorter.h; path = Assets.xcassets/ArraySorter.h; sourceTree = "<group>"; };
 		EDE2427E24D7B05700D7C9FD /* ArraySorter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = ArraySorter.m; path = Assets.xcassets/ArraySorter.m; sourceTree = "<group>"; };
-		EDEE0E1124DDBECD00B5ECFF /* NavigationBarSetter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NavigationBarSetter.h; sourceTree = "<group>"; };
-		EDEE0E1224DDBECD00B5ECFF /* NavigationBarSetter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NavigationBarSetter.m; sourceTree = "<group>"; };
+		EDEE0E1124DDBECD00B5ECFF /* UIViewController+NavigationBarSetter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+NavigationBarSetter.h"; sourceTree = "<group>"; };
+		EDEE0E1224DDBECD00B5ECFF /* UIViewController+NavigationBarSetter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+NavigationBarSetter.m"; sourceTree = "<group>"; };
+		EDF5503824E312AB0011048E /* EditGroupView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = EditGroupView.h; path = GroupStatus/EditGroupView.h; sourceTree = SOURCE_ROOT; };
+		EDF5503924E312AB0011048E /* EditGroupView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = EditGroupView.m; path = GroupStatus/EditGroupView.m; sourceTree = SOURCE_ROOT; };
+		EDF5503B24E312DC0011048E /* EditGroupViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = EditGroupViewController.h; path = GroupStatus/Views/EditGroupViewController.h; sourceTree = SOURCE_ROOT; };
+		EDF5503C24E312DC0011048E /* EditGroupViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = EditGroupViewController.m; path = GroupStatus/Views/EditGroupViewController.m; sourceTree = SOURCE_ROOT; };
 		F28444D7B0C794DC539CA097 /* Pods-GroupStatus-GroupStatusUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GroupStatus-GroupStatusUITests.release.xcconfig"; path = "Target Support Files/Pods-GroupStatus-GroupStatusUITests/Pods-GroupStatus-GroupStatusUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -185,6 +191,8 @@
 		ED06F92224BCBF0600DF2FCD /* View Controller */ = {
 			isa = PBXGroup;
 			children = (
+				EDF5503B24E312DC0011048E /* EditGroupViewController.h */,
+				EDF5503C24E312DC0011048E /* EditGroupViewController.m */,
 				ED5565AB24D1CAA9000D1013 /* EventDetailViewController.h */,
 				ED5565AC24D1CAA9000D1013 /* EventDetailViewController.m */,
 				ED5565A524D0D286000D1013 /* GroupDetailViewController.h */,
@@ -231,6 +239,8 @@
 		ED06F92424BD09E200DF2FCD /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				EDF5503824E312AB0011048E /* EditGroupView.h */,
+				EDF5503924E312AB0011048E /* EditGroupView.m */,
 				ED5565A824D0D8A1000D1013 /* MemberCell.h */,
 				ED5565A924D0D8A1000D1013 /* MemberCell.m */,
 				ED460D3A24C0DAA3008FE71A /* GroupCell.h */,
@@ -276,8 +286,8 @@
 				ED14013D24BCB57E00138A18 /* ViewController.h */,
 				ED14013E24BCB57E00138A18 /* ViewController.m */,
 				ED460D2E24BF55A7008FE71A /* Main.storyboard */,
-				EDEE0E1124DDBECD00B5ECFF /* NavigationBarSetter.h */,
-				EDEE0E1224DDBECD00B5ECFF /* NavigationBarSetter.m */,
+				EDEE0E1124DDBECD00B5ECFF /* UIViewController+NavigationBarSetter.h */,
+				EDEE0E1224DDBECD00B5ECFF /* UIViewController+NavigationBarSetter.m */,
 				ED14014324BCB57F00138A18 /* Assets.xcassets */,
 				ED14014524BCB57F00138A18 /* LaunchScreen.storyboard */,
 				ED14014824BCB57F00138A18 /* Info.plist */,
@@ -600,10 +610,12 @@
 				EDC4342824CA37640001DD06 /* CreateEventViewController.m in Sources */,
 				ED460D3C24C0DAA3008FE71A /* GroupCell.m in Sources */,
 				ED5565AA24D0D8A1000D1013 /* MemberCell.m in Sources */,
-				EDEE0E1324DDBECD00B5ECFF /* NavigationBarSetter.m in Sources */,
+				EDF5503A24E312AB0011048E /* EditGroupView.m in Sources */,
+				EDEE0E1324DDBECD00B5ECFF /* UIViewController+NavigationBarSetter.m in Sources */,
 				ED460D3924BF58F8008FE71A /* ProfileViewController.m in Sources */,
 				ED5565A724D0D286000D1013 /* GroupDetailViewController.m in Sources */,
 				ED460D3624BF5714008FE71A /* TimelineViewController.m in Sources */,
+				EDF5503D24E312DC0011048E /* EditGroupViewController.m in Sources */,
 				EDC4342524CA13B10001DD06 /* TimelineCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

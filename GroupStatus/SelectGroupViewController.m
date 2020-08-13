@@ -11,7 +11,7 @@
 #import "TimelineViewController.h"
 #import "Group.h"
 #import "Member.h"
-#import "NavigationBarSetter.h"
+#import "UIViewController+NavigationBarSetter.h"
 
 @interface SelectGroupViewController ()<UITableViewDataSource,UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -28,7 +28,7 @@
     
     self.tableView.dataSource = self;
     self.tableView.delegate =self;
-    [NavigationBarSetter customizeNavigatioBar:self];
+    [self customizeNavigatioBar];
     
     UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
     [refreshControl addTarget:self action:@selector(beginRefresh:) forControlEvents:UIControlEventValueChanged];

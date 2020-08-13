@@ -18,7 +18,14 @@
     self.descriptionLabel.text = [group groupDescription];
     self.groupNameLabel.text = [group groupName];
     self.memberCountLabel.text = [NSString stringWithFormat:@"%@", [group memberCount]];
-    [self.groupImage loadInBackground];
+   
+    PFFileObject *groupImageFile = [group image];
+    [groupImageFile getDataInBackgroundWithBlock:^(NSData *imageData, NSError *error) {
+        if (!error) {
+            self.groupImage.image = [UIImage imageWithData:imageData];
+        }
+    }];
+    
     [self customizeView];
     
 }
@@ -32,6 +39,9 @@
     gradient.frame = self.cellContainerView.bounds;
     gradient.colors = @[(id)[UIColor greenColor].CGColor, (id)[UIColor systemGreenColor].CGColor];
     [self.cellContainerView.layer insertSublayer:gradient atIndex:0];
+    self.groupImage.layer.cornerRadius = self.groupImage.frame.size.height /2;
+    self.groupImage.layer.masksToBounds = YES;
+    self.groupImage.layer.borderWidth = 0;
 }
 
 @end

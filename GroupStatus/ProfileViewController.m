@@ -12,7 +12,7 @@
 #import <GoogleSignIn/GoogleSignIn.h>
 #import "LoginViewController.h"
 #import "SceneDelegate.h"
-#import "NavigationBarSetter.h"
+#import "UIViewController+NavigationBarSetter.h"
 @import Parse;
 @interface ProfileViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *usernameLabel;
@@ -26,7 +26,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [NavigationBarSetter customizeNavigatioBar:self];
+    [self customizeNavigatioBar];
     Member *currentMember = [Member currentUser];
     self.usernameLabel.text = [currentMember username];
     self.statusLabel.text = [currentMember status];

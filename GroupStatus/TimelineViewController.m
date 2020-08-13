@@ -17,7 +17,7 @@
 #import "Member.h"
 #import "Event.h"
 #import "ArraySorter.h"
-#import "NavigationBarSetter.h"
+#import "UIViewController+NavigationBarSetter.h"
 
 @interface TimelineViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UINavigationItem *titleBar;
@@ -36,7 +36,7 @@
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     self.titleBar.title = [NSString stringWithFormat:@"%@'s Timeline",self.group.groupName];
-    [NavigationBarSetter customizeNavigatioBar:self];
+    [self customizeNavigatioBar];
     
     UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
     [refreshControl addTarget:self action:@selector(beginRefresh:) forControlEvents:UIControlEventValueChanged];
@@ -126,14 +126,10 @@
         
     }];
     
-    UIAlertAction* joinAction = [UIAlertAction actionWithTitle:@"Create Activity" style:UIAlertActionStyleDefault
-                                                       handler:^(UIAlertAction * action) {
-        [self performSegueWithIdentifier:@"activitySegue" sender:nil];
-        
-    }];
+    
     
     [alert addAction:addAction];
-    [alert addAction:joinAction];
+  
     [self presentViewController:alert animated:YES completion:nil];
     
 }

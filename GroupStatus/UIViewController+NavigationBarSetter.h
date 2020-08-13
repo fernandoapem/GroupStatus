@@ -10,8 +10,8 @@
 #import "ViewController.h"
 NS_ASSUME_NONNULL_BEGIN
 
-@interface NavigationBarSetter : NSObject
-+(void) customizeNavigatioBar:(ViewController *)viewController;
+@interface UIViewController(NavigationBarSetter)
+-(void) customizeNavigatioBar;
 @end
 
 NS_ASSUME_NONNULL_END

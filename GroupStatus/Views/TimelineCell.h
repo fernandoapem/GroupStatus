@@ -15,6 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UILabel *activityLabel;
 @property (weak, nonatomic) IBOutlet UILabel *actionLabel;
 @property (nonatomic,strong) Event *event;
+@property (weak, nonatomic) IBOutlet UIView *cellContainerView;
 
 @end
 

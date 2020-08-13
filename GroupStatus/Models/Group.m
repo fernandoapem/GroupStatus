@@ -46,6 +46,16 @@
     [self addObject:memberId forKey:@"members"];
     [self saveInBackground];
 }
++(void) updateGroup:(Group *)group groupName:(NSString *)name
+{
+    group.groupName = name;
+    
+}
++(void) updateGroup:(Group *)group groupDescription:(NSString *)description
+{
+    group.groupDescription = description;
+    
+}
 -(NSMutableArray *) membersInGroup
 {
     return self.members;
@@ -64,6 +74,12 @@
     }
     return self;
 }
++(void)updateProfilePic:(UIImage * _Nullable)image forMember:(Group *)group completion:(PFBooleanResultBlock  _Nullable)completion {
+
+    group.image  = [self getPFFileFromImageGiven:image];
+    [group saveInBackgroundWithBlock:completion];
+}
+
 +(PFFileObject *)getPFFileFromImageGiven: (UIImage * _Nullable)image {
     
     // check if image is not nil
