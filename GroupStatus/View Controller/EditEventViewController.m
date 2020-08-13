@@ -28,9 +28,7 @@
 
     self.titleBar.title = [self.event eventName];
     [self customizeNavigatioBar];
-  //  self.eventDescriptionTextView.layer.borderColor
-   // self.eventDescriptionTextView.layer.borderWidth
-   // self.eventDescriptionTextView.layer.cornerRadius
+    self.eventDescriptionTextView.layer.cornerRadius = 10;
 }
 - (IBAction)onCancelTap:(id)sender {
     

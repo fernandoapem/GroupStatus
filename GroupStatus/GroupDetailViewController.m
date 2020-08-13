@@ -29,7 +29,15 @@
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     self.titleBar.title = [self.group groupName];
-   
+    PFFileObject *groupImageFile = [self.group image];
+    [groupImageFile getDataInBackgroundWithBlock:^(NSData *imageData, NSError *error) {
+        if (!error) {
+            self.groupImage.image = [UIImage imageWithData:imageData];
+        }
+    }];
+    self.groupImage.layer.cornerRadius = self.groupImage.frame.size.height /2;
+    self.groupImage.layer.masksToBounds = YES;
+    self.groupImage.layer.borderWidth = 0;
     self.groupCountLabel.text = [NSString stringWithFormat:@"%@", [self.group memberCount]];
     self.groupDescription.text = [self.group groupDescription];
     [self fetchMember];
@@ -56,7 +64,7 @@
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-
+    
     Group *group = self.group;
     EditGroupViewController  *viewController = [segue destinationViewController];
     viewController.group = group;

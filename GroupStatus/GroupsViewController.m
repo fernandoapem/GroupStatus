@@ -13,6 +13,7 @@
 #import "Member.h"
 #import "GroupDetailViewController.h"
 #import "UIViewController+NavigationBarSetter.h"
+
 @interface GroupsViewController ()<UITableViewDataSource,UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic,strong) NSArray *groups;
@@ -105,6 +106,18 @@
     GroupCell *cell = [tableView dequeueReusableCellWithIdentifier:@"GroupCell"];
     cell.group = self.groups[indexPath.row];
     
+    [cell setAlpha:0.0f];
+
+    //fade in
+    [UIView animateWithDuration:2.0f animations:^{
+
+        [cell setAlpha:1.0f];
+
+    } completion:^(BOOL finished) {
+
+        
+        
+    }];
     return cell;
 }
 

@@ -21,6 +21,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.descriptionView.layer.cornerRadius = 10;
 }
 - (IBAction)onCancelTap:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];

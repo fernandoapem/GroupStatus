@@ -25,6 +25,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.descriptionTextView.layer.cornerRadius = 10;
     [self fetchCurrentTimeline];
 }
 - (IBAction)tapOnCancel:(id)sender {

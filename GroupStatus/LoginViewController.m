@@ -13,7 +13,7 @@
 #import "Event.h"
 #import <Parse/Parse.h>
 #import <GoogleSignIn/GoogleSignIn.h>
-
+#import "UITextField+Shake.h"
 @interface LoginViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *usernameTextField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
@@ -27,11 +27,11 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [GIDSignIn sharedInstance].presentingViewController = self;
-
+    
     // Automatically sign in the user.
     [[GIDSignIn sharedInstance] restorePreviousSignIn];
     
-   
+    
     GIDSignIn *signIn = [GIDSignIn sharedInstance];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(segueIntoVC) name:@"Google Logged in" object:nil];
     if([signIn currentUser])
@@ -40,7 +40,7 @@
         [self performSegueWithIdentifier:@"loginSegue" sender:nil];
         
     }
-
+    
     
 }
 
@@ -63,7 +63,7 @@
 
 - (IBAction)tapOnSignUp:(id)sender {
     Member *member = [[Member alloc] initWithStatus:@"Starter" username:self.usernameTextField.text password:self.passwordTextField.text googleUser:NO];
-
+    
     
     [member signUpInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
         if(succeeded)
@@ -87,6 +87,16 @@
 - (IBAction)tapOnLogIn:(id)sender {
     NSString *username = self.usernameTextField.text;
     NSString *password = self.passwordTextField.text;
+    if([self.usernameTextField.text isEqual:@""])
+    {
+        [self.usernameTextField shake:10 withDelta:5];
+        
+    }
+    if([self.passwordTextField.text isEqual:@""])
+    {
+        [self.passwordTextField shake:10 withDelta:5];
+    }
+    
     [PFUser logInWithUsernameInBackground:username password:password block:^(PFUser * user, NSError *  error) {
         if (error != nil) {
             NSLog(@"%@",error.localizedDescription);
@@ -101,13 +111,13 @@
 
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end

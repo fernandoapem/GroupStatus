@@ -168,6 +168,16 @@
                                                action:@selector(handleLongPress:)];
     longPress.minimumPressDuration = 1.0;
     [cell addGestureRecognizer:longPress];
+    [cell setAlpha:0.0f];
+
+    //fade in
+    [UIView animateWithDuration:2.0f animations:^{
+
+        [cell setAlpha:1.0f];
+
+    } completion:^(BOOL finished) {
+
+    }];
     
     return cell;
 }

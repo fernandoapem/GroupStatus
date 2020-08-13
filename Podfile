@@ -9,6 +9,7 @@ target 'GroupStatus' do
   pod 'Parse'
   pod 'Parse/UI'
   pod 'GoogleSignIn'
+  pod 'UITextField+Shake', '~> 1.2'
  
 
   target 'GroupStatusTests' do
