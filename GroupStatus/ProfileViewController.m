@@ -26,6 +26,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+
+    
     [self customizeNavigatioBar];
     Member *currentMember = [Member currentUser];
     self.usernameLabel.text = [currentMember username];

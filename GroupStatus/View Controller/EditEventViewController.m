@@ -25,7 +25,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-
+    [self.datePicker setValue:[UIColor whiteColor] forKey:@"textColor"];
     self.titleBar.title = [self.event eventName];
     [self customizeNavigatioBar];
     self.eventDescriptionTextView.layer.cornerRadius = 10;

@@ -35,7 +35,7 @@
     // Do any additional setup after loading the view.
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
-    self.titleBar.title = [NSString stringWithFormat:@"%@'s Timeline",self.group.groupName];
+    self.titleBar.title = [NSString stringWithFormat:@"%@",self.group.groupName];
     [self customizeNavigatioBar];
     
     UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
@@ -127,7 +127,8 @@
     }];
     
     
-    
+    [alert setOverrideUserInterfaceStyle:UIUserInterfaceStyleDark];
+    alert.view.tintColor = [UIColor systemGreenColor];
     [alert addAction:addAction];
   
     [self presentViewController:alert animated:YES completion:nil];

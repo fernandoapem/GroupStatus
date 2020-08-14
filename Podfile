@@ -10,6 +10,7 @@ target 'GroupStatus' do
   pod 'Parse/UI'
   pod 'GoogleSignIn'
   pod 'UITextField+Shake', '~> 1.2'
+  pod 'KILabel', '1.0.0'
  
 
   target 'GroupStatusTests' do

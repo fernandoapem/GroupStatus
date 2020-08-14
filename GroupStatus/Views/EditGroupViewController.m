@@ -77,6 +77,8 @@
         imagePickerVC.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
     }
     self.didSelectEdit = YES;
+    [imagePickerVC setOverrideUserInterfaceStyle:UIUserInterfaceStyleDark];
+    imagePickerVC.view.tintColor = [UIColor systemGreenColor];
     [self presentViewController:imagePickerVC animated:YES completion:nil];
     
     

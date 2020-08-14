@@ -70,7 +70,9 @@
         [self performSegueWithIdentifier:@"joinSegue" sender:nil];
         
     }];
-     
+    [alert setOverrideUserInterfaceStyle:UIUserInterfaceStyleDark];
+    alert.view.tintColor = [UIColor systemGreenColor];
+
     [alert addAction:addAction];
     [alert addAction:joinAction];
     [self presentViewController:alert animated:YES completion:nil];

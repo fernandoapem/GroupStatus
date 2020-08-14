@@ -7,13 +7,15 @@
 //
 
 #import "EventDetailViewController.h"
-
+#import "UIViewController+NavigationBarSetter.h"
+#import "KILabel.h"
 @interface EventDetailViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *eventNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *timeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *descriptionLabel;
-@property (weak, nonatomic) IBOutlet UILabel *linkLabel;
+@property (weak, nonatomic) IBOutlet UITextView *linkLabel;
 @property (weak, nonatomic) IBOutlet UILabel *linkTagLabel;
+@property (weak, nonatomic) IBOutlet UIView *containerView;
 
 @end
 
@@ -21,9 +23,23 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.eventNameLabel.text = [self.event eventName];
+    self.containerView.layer.cornerRadius = 15;
+    
+    self.containerView.layer.masksToBounds = true;
+    
+    CAGradientLayer *gradient = [CAGradientLayer layer];
+
+    gradient.frame = self.containerView.bounds;
+    gradient.colors = @[(id)[UIColor greenColor].CGColor, (id)[UIColor systemGreenColor].CGColor];
+    [self.containerView.layer insertSublayer:gradient atIndex:0];
+    
+    self.linkLabel.layer.cornerRadius =10;
+    self.linkLabel.editable = NO;
+    self.linkLabel.dataDetectorTypes= UIDataDetectorTypeAll;
+    self.title= [self.event eventName];
+    [self customizeNavigatioBar];
     self.descriptionLabel.text = [self.event eventDescription];
-    if(![self.event link])
+    if([[self.event link] isEqualToString:@""])
     {
         self.linkTagLabel.alpha = 0;
         self.linkLabel.alpha = 0;
@@ -31,6 +47,7 @@
     else
     {
         self.linkLabel.text = [self.event link];
+       
     }
     self.timeLabel.text = [self.event timeString];
 }
